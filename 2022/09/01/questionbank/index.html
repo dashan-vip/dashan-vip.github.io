@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#3367D6"/>
+  <link rel="apple-touch-icon" href="/favicon.ico">
+  <link rel="manifest" href="/manifest.json">
+  
+
+
+  <meta name="generator" content="Hexo 6.2.0">
+
+  
+
+  
+
+  
+    <meta name="author" content="张志岳">
+  
+
+  
+
+  
+
+  <title>知识点、面试题整理 | BLOG</title>
+
+  
+
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+
+  
+
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+  <div class="root-container">
+    
+<!-- header container -->
+<header class="header-container post">
+  
+    <div class="post-image" style="background-image: url(https://w.wallhaven.cc/full/50/wallhaven-501w34.png)"></div>
+  
+
+  <!-- navbar -->
+<nav class="navbar">
+  <div class="navbar-content">
+    <!-- logo -->
+    <div class="navbar-logo">
+      <a href="/">
+        
+          BLOG
+        
+      </a>
+    </div>
+    <!-- link -->
+    <div class="navbar-link">
+      <div class="navbar-btn">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <ul class="navbar-list">
+        
+          <li class="navbar-list-item"><a href="/">首页</a></li>
+        
+          <li class="navbar-list-item"><a href="/links">友链</a></li>
+        
+          <li class="navbar-list-item"><a href="/about">关于</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+    <div class="header-content">
+      <div class="post-text layout-block">
+        <div class="layout-margin">
+          <h1 class="title-wrap">知识点、面试题整理</h1>
+          <h2 class="title-sub-wrap">
+            <strong>张志岳</strong>
+            <span>发布于</span>
+            <time  class="article-date" datetime="2022-09-01T08:24:48.000Z" itemprop="datePublished">2022-09-01</time>
+          </h2>
+          <ul class="wrap-list dark">
+  
+    <li><a href="/categories/questions/">📒 questions</a></li>
+  
+</ul>
+          <ul class="wrap-list dark">
+  
+    <li><a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">🏷️ 面试题</a></li>
+  
+</ul>
+        </div>
+      </div>
+    </div>
+  
+
+  
+  
+  
+</header>
+
+    <!-- 文章 -->
+
+<!-- 文章内容 -->
+<div class="body-container">
+  <article class="content-container layout-block post-container">
+    <div class="article-info">
+      
+      
+      
+      
+      <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
+        <h4 id="nextTick"><a href="#nextTick" class="headerlink" title="$nextTick"></a>$nextTick</h4><p>Vue生命周期的created()钩子函数进行的DOM操作一定要放在Vue.nextTick()的回调函数中，原因是在created()钩子函数执行的时候DOM 其实并未进行任何渲染，而此时进行DOM操作无异于徒劳，所以此处一定要将DOM操作的js代码放进Vue.nextTick()的回调函数中。与之对应的就是mounted钩子函数，因为该钩子函数执行时所有的DOM挂载已完成。nextTick 就是设置一个回调，用于异步执行。<br>就是把你设置的回调放在 setTimeout 中执行，这样就算异步了，等待当时同步代码执行完毕再执行。</p>
+<pre><code>  created()&#123;
+    let that=this;
+    that.$nextTick(function()&#123;  //不使用this.$nextTick()方法会报错
+        that.$refs.aa.innerHTML=&quot;created中更改了按钮内容&quot;;  //写入到DOM元素
+    &#125;);
+  &#125;,
+</code></pre>
+<h4 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h4><ul>
+<li><p>&#x3D;&#x3D;iframe:&#x3D;&#x3D; iframe一般用来包含别的页面，例如我们可以在我们自己的网站页面加载别人网站的内容，为了更好的效果，可能需要使iframe透明效果，那么就需要了解更多的iframe属性。 </p>
+</li>
+<li><p>postMessage</p>
+</li>
+<li><p>proxyTable(vue中的proxy代理)</p>
+</li>
+<li><p>nodejs 中间件(设置请求头)</p>
+</li>
+</ul>
+<pre><code>app.all(&quot;*&quot;, function(req, res, next) &#123;
+   res.header(&quot;Access-Control-Allow-Origin&quot;, &quot;*&quot;);
+   res.header(&quot;Access-control-Allow-Headers&quot;, &quot;xCors&quot;);    //允许请求头中携带 xCors
+   next();
+&#125;)
+</code></pre>
+<ul>
+<li>cors</li>
+</ul>
+<pre><code>var express = require(&#39;express&#39;);
+var app = express();
+var allowCrossDomain = function (req, res, next) &#123;
+  res.header(&#39;Access-Control-Allow-Origin&#39;, &#39;http://localhost:3001&#39;);
+  res.header(&#39;Access-Control-Allow-Methods&#39;, &#39;GET,PUT,POST,DELETE&#39;);
+  res.header(&#39;Access-Control-Allow-Headers&#39;, &#39;Content-Type&#39;);
+  next();
+&#125;
+app.use(allowCrossDomain);
+</code></pre>
+<ul>
+<li>websocket</li>
+</ul>
+<pre><code>// Create WebSocket connection.
+const socket = new WebSocket(&#39;ws://localhost:8080&#39;);
+
+// Connection opened
+socket.addEventListener(&#39;open&#39;, function (event) &#123;
+    socket.send(&#39;Hello Server!&#39;);
+&#125;);
+
+// Listen for messages
+socket.addEventListener(&#39;message&#39;, function (event) &#123;
+    console.log(&#39;Message from server &#39;, event.data);
+&#125;);
+</code></pre>
+<ul>
+<li>jsonp</li>
+</ul>
+<p>基本原理： 主要就是利用了 script 标签的src没有跨域限制来完成的(只能进行GET请求)。</p>
+<pre><code>&lt;script type=&#39;text/javascript&#39;&gt;
+    window.jsonpCallback = function (res) &#123;
+        console.log(res)
+    &#125;
+&lt;/script&gt;
+&lt;script src=&#39;http://localhost:8080/api/jsonp?id=1&amp;cb=jsonpCallback&#39; type=&#39;text/javascript&#39;&gt;&lt;/script&gt;
+</code></pre>
+<ul>
+<li>nginx反向代理</li>
+</ul>
+<p> 正向代理代理客户端，反向代理代理服务器。</p>
+<h4 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h4><ol>
+<li>什么是闭包,闭包的优缺点?</li>
+</ol>
+<p>闭包就是函数作用域链保留了一段本来应该被销毁的作用域.</p>
+<p>优点:有点是全局变量私有化</p>
+<p>缺点:内存溢出.(一般执行完以后让变量变成null)</p>
+<p>闭包的使用场景节流和防抖</p>
+<p>函数防抖是某一段时间内只执行一次，而函数节流是间隔时间执行。</p>
+<p>登录、input输入时候的联想菜单请求发短信等按钮避免用户点击太快，以致于发送了多次请求，需要防抖</p>
+<pre><code>//防抖
+function handle() &#123;
+    let timer;
+    return function () &#123;
+        clearTimeout(timer);
+        timer = setTimeout(() =&gt; &#123;
+            console.log(11);
+        &#125;, 300);
+    &#125;;
+&#125;
+</code></pre>
+<pre><code>//节流，滚动
+function throttle() &#123;
+  let timeout
+
+  return function() &#123;
+    if (timeout) return 
+      timeout = setTimeout(() =&gt; &#123;
+        timeout = null
+        console.log(11);
+      &#125;, 1000)
+  &#125;
+&#125;
+window.onscroll = throttle()
+</code></pre>
+<h4 id="普通函数和箭头函数的区别"><a href="#普通函数和箭头函数的区别" class="headerlink" title="普通函数和箭头函数的区别"></a>普通函数和箭头函数的区别</h4><p>1.箭头函数没有原型 原型是undefined</p>
+<p>2.箭头函数this指向全局对象 而函数指向引用对象</p>
+<p>3.call，apply，bind方法改变不了箭头函数的指向</p>
+<h4 id="jquery和vue区别"><a href="#jquery和vue区别" class="headerlink" title="jquery和vue区别"></a>jquery和vue区别</h4><ol>
+<li>vue数据驱动</li>
+<li>jq控制dom元素</li>
+<li>vue渲染优雅，代码易维护</li>
+</ol>
+<h4 id="js基本数据类型"><a href="#js基本数据类型" class="headerlink" title="js基本数据类型"></a>js基本数据类型</h4><p>string、boolean、number、null、undefined、symbol、object</p>
+<h4 id="this指向"><a href="#this指向" class="headerlink" title="this指向"></a>this指向</h4><p>this指向调用函数的主体对象,谁点他调用this就指向谁</p>
+<p>&#x3D;&#x3D;call apply bind&#x3D;&#x3D;区别:call() 与apply()只有一个区别，就是 call() 方法接受的是一个参数列表，而 apply() 方法接受的是一个包含多个参数的数组。bind()  方法创建一个新的函数，在 bind() 被调用时，这个新函数的 this 被指定为 bind() 的第一个参数，而其余参数将作为新函数的参数，供调用时使用。</p>
+<ul>
+<li>call的实现</li>
+</ul>
+<pre><code> Function.prototype.myCall = function(target, ...args) &#123;
+  // this 指向调用 myCall函数的对象
+  if (typeof this !== &quot;function&quot;) &#123;
+    throw new TypeError(&quot;not a function&quot;)
+  &#125;
+  target = target || window
+  //相当于给obj对象中创建了fn属性并赋值为foo函数 === obj.fn = foo()
+  target.fn = this // 隐式绑定，改变构造函数的调用者间接改变 this 指向foo,foo.myCall调用了
+  let result = target.fn(...args)//obj.fn() === foo()
+  return result
+&#125;;
+// 测试
+let obj = &#123; name: 123 &#125;
+function foo(...args) &#123;
+  console.log(this.name, args)
+&#125;
+let s = foo.myCall(obj, &#39;111&#39;, &#39;222&#39;)
+</code></pre>
+<ul>
+<li>apply实现</li>
+</ul>
+<pre><code>Function.prototype.myApply = function(target,arg)&#123;
+     //判断传进来的arg是不是一个数组
+     let state = Object.prototype.toString.call(arg).slice(8,-1)
+     //判断当前this是不是一个函数
+    if (typeof this !== &quot;function&quot;) &#123;
+        throw new TypeError(&quot;not a function&quot;)
+    &#125;
+    //判断当前传入的参数是不是一个数组
+    if(state !== &#39;Array&#39;)&#123;
+        throw new TypeError(&quot;not a Array&quot;)
+    &#125;
+    target = target || window
+    target.fn = this
+    let result = target.fn(arg)
+    return result
+ &#125;
+ const obj = &#123; name: 123 &#125;;
+function foo(args) &#123;
+  console.log(this.name, args);
+&#125;
+const s1 = [1, 2, 3, 4, 5];
+const s = foo.myApply(obj,s1);
+</code></pre>
+<ul>
+<li>bind实现</li>
+</ul>
+<pre><code>
+</code></pre>
+<h4 id="es6的知识点"><a href="#es6的知识点" class="headerlink" title="es6的知识点"></a>es6的知识点</h4><ul>
+<li>声明和表达式：let const 解构赋值 Symbol</li>
+<li>内置对象：Map和Set  proxy和reflect</li>
+<li>字符串模板</li>
+<li>函数：参数扩展 箭头函数 迭代器 for of</li>
+<li>class类</li>
+<li>export和import 模块</li>
+<li>promise async await和generator</li>
+</ul>
+<h4 id="js事件循环机制"><a href="#js事件循环机制" class="headerlink" title="js事件循环机制"></a>js事件循环机制</h4><p>js是事件驱动单线程执行,在执行任务队列的时候会依次执行,首先会执行主线程中的代码,然后执行异步任务,在执行异步任务时:</p>
+<p>(1)存在微任务的话，那么就执行所有的微任务</p>
+<p>(2)微任务都执行完之后，执行下一个宏任务</p>
+<p>微任务队列追加在process.nextTick队列的后面。也属于本轮循环。所以，下面的代码总是先输出</p>
+<pre><code>process.nextTick(()=&gt;console.log(3))
+promise.resolve().then(()=&gt;console.log(4))
+//输出为
+//3
+//4
+</code></pre>
+<ul>
+<li>宏任务<br>setInterval() ；<br>setTimeout()；<br>setImmediate(Node独有)；<br>requestAnimationFrame(浏览器独有)<br>I&#x2F;O<br>UI rendering(浏览器独有)</li>
+<li>微任务<br>new Promise() ；<br>new MutaionObserver()；<br>process.nextTick(Node独有)<br>Object.observe</li>
+</ul>
+<h4 id="ajax和axios的区别"><a href="#ajax和axios的区别" class="headerlink" title="ajax和axios的区别"></a>ajax和axios的区别</h4><p>&#x3D;&#x3D;ajax:&#x3D;&#x3D; 传统Ajax 指的是new一个 XMLHttpRequest（XHR）代理，最早出现的向后端发送请求的技术，隶属于原始 js 中， 核心使用 XMLHttpRequest 对象，多个请求之间如果有先后关系的话，就会出现 &#x3D;&#x3D;回调地狱&#x3D;&#x3D;</p>
+<p>&#x3D;&#x3D;axios:&#x3D;&#x3D; axios 是一个基于 Promise 的 http请求库，可以用在浏览器和 node.js 中，本质上也是对原生XHR的封装，只不过它是Promise 的实现版本，符合最新的ES规则。</p>
+<pre><code>//请求拦截器
+instance.interceptors.request.use(
+  config =&gt; &#123;
+    const token = sessionStorage.getItem(&#39;token&#39;)
+    if (token ) &#123; // 判断是否存在token，如果存在的话，则每个http header都加上token
+      config.headers.authorization = token  //请求头加上token
+    &#125;
+    return config
+  &#125;,
+  err =&gt; &#123;
+    return Promise.reject(err)
+  &#125;)
+</code></pre>
+<pre><code>// http response 响应拦截器
+instance.interceptors.response.use(
+  response =&gt; &#123;
+    //拦截响应，做统一处理 
+    if (response.data.code) &#123;
+      switch (response.data.code) &#123;
+        case 1002:
+          store.state.isLogin = false
+          router.replace(&#123;
+            path: &#39;login&#39;,
+            query: &#123;
+              redirect: router.currentRoute.fullPath
+            &#125;
+          &#125;)
+      &#125;
+    &#125;
+    return response
+  &#125;,
+  //接口错误状态处理，也就是说无响应时的处理
+  error =&gt; &#123;
+    return Promise.reject(error.response.status) // 返回接口返回的错误信息
+  &#125;)
+</code></pre>
+<h4 id="Promise优缺点-为什么使用promise"><a href="#Promise优缺点-为什么使用promise" class="headerlink" title="Promise优缺点,为什么使用promise"></a>Promise优缺点,为什么使用promise</h4><p>promise是为了解决多条请求相互依赖时,如果上一条请求返回的值需要在外部用到就需要一个回调函数抛出,依次就会形成回调地狱.</p>
+<ul>
+<li>优点: 让异步操作像同步一样表现出来,避免了层层嵌套的回调函数.</li>
+<li>缺点: 无法取消promise,一旦建成就会立即执行,如果不设置回调函数,promise内部返回的错误无法在外部表现出来,当处于pedding状态时,无法得知进行到了哪一步</li>
+<li>Promise.all方法</li>
+</ul>
+<pre><code>Promise.all获得的成功结果的数组里面的数据顺序和Promise.all接收到的数组顺序是一致的，即p1的结果在前，即便p1的结果获取的比p2要晚。这带来了一个绝大的好处：在前端开发请求数据的过程中，偶尔会遇到发送多个请求并根据请求顺序获取和使用数据的场景，使用Promise.all毫无疑问可以解决这个问题。
+let p1 = new Promise((resolve, reject) =&gt; &#123;
+  resolve(&#39;成功了&#39;)
+&#125;)
+
+let p2 = new Promise((resolve, reject) =&gt; &#123;
+  resolve(&#39;success&#39;)
+&#125;)
+
+let p3 = Promse.reject(&#39;失败&#39;)
+
+Promise.all([p1, p2]).then((result) =&gt; &#123;
+  console.log(result)               //[&#39;成功了&#39;, &#39;success&#39;]
+&#125;).catch((error) =&gt; &#123;
+  console.log(error)
+&#125;)
+
+Promise.all([p1,p3,p2]).then((result) =&gt; &#123;
+  console.log(result)
+&#125;).catch((error) =&gt; &#123;
+  console.log(error)      // 失败了，打出 &#39;失败&#39;
+&#125;)
+</code></pre>
+<ul>
+<li>手写一个promise.all</li>
+</ul>
+<pre><code>Promise.myAll = (arr) =&gt;&#123;
+    return new Promise((rs,rj) =&gt;&#123;
+        //数组长度
+        let len = arr.length
+        //计数器,当count === len 时结束
+        let count = 0
+        //存放返回的值
+        let result = []
+        if (len === 0) &#123;
+            return rs([])
+        &#125;
+        arr.forEach((p,i) =&gt; &#123;
+            Promise.resolve(p).then((res) =&gt;&#123;
+                count++
+                result[i] = res
+                if (count === len) &#123;
+                    rs(result)
+                &#125;
+            &#125;).catch(rj)
+        &#125;);
+    &#125;)
+ &#125; 
+ let p1 = Promise.resolve(&#39;11&#39;)
+ let p2 = Promise.reject(&#39;22&#39;)
+ let p3 = Promise.resolve(&#39;33&#39;)
+Promise.myAll([p1,p2,p3]).then((res) =&gt;&#123;
+    console.log(res);
+&#125;)
+</code></pre>
+<ul>
+<li>Promise.race方法</li>
+</ul>
+<pre><code>Promse.race就是赛跑的意思，意思就是说，Promise.race([p1, p2, p3])里面哪个结果获得的快，就返回那个结果，不管结果本身是成功状态还是失败状态。
+let p1 = new Promise((resolve, reject) =&gt; &#123;
+  setTimeout(() =&gt; &#123;
+    resolve(&#39;success&#39;)
+  &#125;,1000)
+&#125;)
+
+let p2 = new Promise((resolve, reject) =&gt; &#123;
+  setTimeout(() =&gt; &#123;
+    reject(&#39;failed&#39;)
+  &#125;, 500)
+&#125;)
+
+Promise.race([p1, p2]).then((result) =&gt; &#123;
+  console.log(result)
+&#125;).catch((error) =&gt; &#123;
+  console.log(error)  // 打开的是 &#39;failed&#39;
+&#125;)
+</code></pre>
+<h4 id="v-if和v-show的区别"><a href="#v-if和v-show的区别" class="headerlink" title="v-if和v-show的区别"></a>v-if和v-show的区别</h4><ul>
+<li>v-if切换开销比较大(是通过控制dom节点的存在与否来控制元素的显隐)</li>
+<li>v-show 初始开销比较大(是通过设置DOM元素的display样式，block为显示，none为隐藏)</li>
+</ul>
+<h4 id="v-for的key的作用"><a href="#v-for的key的作用" class="headerlink" title="v-for的key的作用"></a>v-for的key的作用</h4><p>key 的作用主要是 为了实现高效的更新虚拟 DOM，提高性能。确定唯一的标识,diff算法更高效</p>
+<pre><code>//如果在ABCDE中的BC之间插入F变成ABFCDE,如果没有key,即把C更新成F，D更新成C，E更新成D，最后再插入E，是不是很没有效率？ 更新了3次，之后做了一次创建插入的操作
+</code></pre>
+<h4 id="x3D-x3D-false-和-x3D-x3D-false"><a href="#x3D-x3D-false-和-x3D-x3D-false" class="headerlink" title="[]&#x3D;&#x3D;false 和 ![]&#x3D;&#x3D;false"></a>[]&#x3D;&#x3D;false 和 ![]&#x3D;&#x3D;false</h4><ul>
+<li>第一个 [] &#x3D;&#x3D; false 转为数字 0&#x3D;&#x3D;0</li>
+<li>第二个 ![] &#x3D;&#x3D;false 转为布尔 false &#x3D;&#x3D; false</li>
+<li>! 的定义：除了取反也可将变量转换成 boolean 类型。null 、 undefined 、 NaN 以及空字符串 (‘’) 取反都为 true ，其余都为 false 。所以 ![] 运算后的结果就是 false</li>
+<li>可以思考一下显性转换和隐性转换</li>
+</ul>
+<h4 id="路由的两种方式-路由守卫"><a href="#路由的两种方式-路由守卫" class="headerlink" title="路由的两种方式 路由守卫"></a>路由的两种方式 路由守卫</h4><ul>
+<li>hash:比如这个 URL： <a target="_blank" rel="noopener" href="http://www.abc.com/#/hello">http://www.abc.com/#/hello</a> ，hash 的值为 #&#x2F;hello。它的特点在于：hash 虽然出现在 URL 中，但不会被包括在 HTTP 请求中，对后端完全没有影响，因此改变 hash 不会重新加载页面。</li>
+<li>history:push跳转或者replace跳转是不需要请求服务器的！</li>
+</ul>
+<h4 id="数组对象去重"><a href="#数组对象去重" class="headerlink" title="数组对象去重"></a>数组对象去重</h4><pre><code>let log = console.log.bind(console);
+let person = [
+    &#123;id: 0, name: &quot;小明&quot;&#125;,
+    &#123;id: 1, name: &quot;小张&quot;&#125;,
+    &#123;id: 2, name: &quot;小李&quot;&#125;,
+    &#123;id: 3, name: &quot;小孙&quot;&#125;,
+    &#123;id: 1, name: &quot;小周&quot;&#125;,
+    &#123;id: 10, name: &quot;小周&quot;&#125;,
+    &#123;id: 2, name: &quot;小陈&quot;&#125;,   
+];
+
+let obj = &#123;&#125;;
+
+person = person.reduce((cur,next) =&gt; &#123;
+   //
+   obj[next.id] ? &quot;&quot; : obj[next.id] = true &amp;&amp; cur.push(next);
+   return cur;
+&#125;,[]) //设置cur默认类型为数组，并且初始值为空的数组
+log(person);
+</code></pre>
+<h4 id="var-let-const的区别"><a href="#var-let-const的区别" class="headerlink" title="var,let,const的区别"></a>var,let,const的区别</h4><ul>
+<li>let声明的变量只在他所在的代码块内有效,只要块级块级作用域内存在let命令,它所声明的变量就“绑定”（binding）这个区域，不再受外部的影响。</li>
+<li>let不允许在相同作用域内，重复声明同一个变量。</li>
+<li>var命令会发生变量提升现象,即变量可以在声明之前使用,值为undefined</li>
+<li>const声明一个只读的常量。一旦声明，常量的值就不能改变。不可重复声明</li>
+</ul>
+<pre><code>//第一种场景
+if (true) &#123;
+ // TDZ开始
+ tmp = &#39;abc&#39;; // ReferenceError
+ console.log(tmp); // ReferenceError
+
+ let tmp; // TDZ结束
+ console.log(tmp); // undefined
+
+ tmp = 123;
+ console.log(tmp); // 123
+&#125;
+//第二种场景(内部tmp覆盖了外部的tmp)
+ var tmp = new Date();
+
+function f() &#123;
+ console.log(tmp);
+ if (false) &#123;
+   var tmp = &#39;hello world&#39;;
+ &#125;
+&#125;
+
+f(); // undefined
+//第三种场景(i 泄露为全局变量)
+ var s = &#39;hello&#39;;
+
+for (var i = 0; i &lt; s.length; i++) &#123;
+ console.log(s[i]);
+&#125;
+
+console.log(i); // 5
+</code></pre>
+<h4 id="class类"><a href="#class类" class="headerlink" title="class类"></a>class类</h4><p> 类不存在变量提升,必须保证子类在父类之后.</p>
+<pre><code>var F = function () &#123;&#125;
+Object.prototype.a = function () &#123;&#125;
+Function.prototype.b = function () &#123;&#125;
+
+var f = new F()
+// 请问f有方法a  方法b吗
+f的__proto__指向F.prototype.F.prototype.__proto__指向Object.prototype,所以f可以取到a方法,由于f的原型链没有经过Function.prototype,所以取不到b方法
+</code></pre>
+<pre><code>function Person()&#123;&#125;
+
+let p1 = new Person()
+let p2 = new Person()
+let obj = &#123;&#125;
+写出 p1  p2  Person  Function   obj   Object等的原型链。
+　p1:      __proto__ :  Person.prototype       
+
+　p2:      __proto__ :  Person.prototype 
+
+　Person  :         __proto__： Function.prototype，    prototype： Person.prototype
+
+　Person.prototype ：         __proto__ ： Object.prototype ，  constructor： Person
+
+　Function：       __proto__ ： Function.prototype，   prototype： Function.prototype
+
+　Function.Prototype：     __proto__ ：  Object.prototype ，   constructor：  Function
+
+　obj：    __proto__ ： Object.prototype
+
+　Object：   __proto__ ： Function.prototype  ，   prototype：  Object.prototype
+
+　Object.prototype：    __proto__ ：  null  ，   constructor  ：  Object
+　1. Function.__proto__    ===     Function.prototype
+　Function.prototype是引擎创造出来的对象，一开始就有了，又因为其他的构造函数都可以通过原型链找到Function.prototype，Function本身也是一个构造函数，为了不产生混乱，就将这两个联系到一起了。
+　2.Object.__proto__  === Function.prototype
+   Object是对象的构造函数，那么它也是一个函数，当然它的__proto__也是指向Function.prototype
+</code></pre>
+<h4 id="js为什么是单线程"><a href="#js为什么是单线程" class="headerlink" title="js为什么是单线程"></a>js为什么是单线程</h4><p> js主要实现的是用户与浏览器之间的交互以及操作dom,这决定了它只能是单线程,如果js被设计成多线程,在这个线程中要修改一个dom,而在另一个线程又要删除这个dom,此时浏览器就会不知道如何处理.</p>
+<h4 id="h5的worker"><a href="#h5的worker" class="headerlink" title="h5的worker"></a>h5的worker</h4><p>这是h5的一个api也是一个类new worker新增一个线程 但是这个线程有限制不能操作dom元素而且受主线程管理</p>
+<h4 id="Object-prototype-toString、typeof与instanceof的区别"><a href="#Object-prototype-toString、typeof与instanceof的区别" class="headerlink" title="Object.prototype.toString、typeof与instanceof的区别"></a>Object.prototype.toString、typeof与instanceof的区别</h4><ul>
+<li>typeof会返回一个变量的基本类型，instanceof返回的是一个布尔值</li>
+<li>instanceof 可以准确地判断复杂引用数据类型，但是不能正确判断基础数据类型</li>
+<li>而 typeof 也存在弊端，它虽然可以判断基础数据类型（null 除外）typeof(null)&#x3D;’object’</li>
+<li>Object.prototype.toString，调用该方法，统一返回格式“[object Xxx]” 的字符串</li>
+</ul>
+<h4 id="一个浏览器是如何工作的？"><a href="#一个浏览器是如何工作的？" class="headerlink" title="一个浏览器是如何工作的？"></a>一个浏览器是如何工作的？</h4><ol>
+<li>浏览器首先使用 HTTP 协议或者 HTTPS 协议，向服务端请求页面；</li>
+<li>把请求回来的 HTML 代码经过解析，构建成 DOM 树；</li>
+<li>计算 DOM 树上的 CSS 属性；</li>
+<li>最后根据 CSS 属性对元素逐个进行渲染，得到内存中的位图；</li>
+<li>一个可选的步骤是对位图进行合成，这会极大地增加后续绘制的速度；</li>
+<li>合成之后，再绘制到界面上。</li>
+</ol>
+<h5 id="一个页面从输入-URL-到页面加载显示完成，这个过程中都发生了什么？"><a href="#一个页面从输入-URL-到页面加载显示完成，这个过程中都发生了什么？" class="headerlink" title="一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？"></a>一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？</h5><ul>
+<li>DNS解析,将域名地址解析为IP地址<br>（什么是dns:DNS 即域名系统，所以 DNS 的查询过程，说白了，就是去向这些 DNS 服务器询问，你知道这个主机名的 IP 是多少吗，不知道？那你知道去哪台 DNS 服务器上可以查到吗？直到查到我想要的 IP 为止。）</li>
+<li>和服务器建立TCP连接(TCP三次握手协议)第一次由浏览器发起,第二次由服务器发起,第三次由浏览器发起</li>
+<li>发送请求 请求报文(HTTP协议的通信内容)</li>
+<li>浏览器接收响应资源</li>
+<li>浏览器对加载到的资源进行语法解析,生成dom树和cssom树,执行js代码</li>
+<li>将dom树和css树合并生成渲染树</li>
+<li>根据渲染树来计算布局,计算每个节点的几何信息(布局)</li>
+<li>就是渲染节点元素,完成页面整体渲染</li>
+<li>断开连接,TCP四次挥手</li>
+</ul>
+<h5 id="回流和重绘"><a href="#回流和重绘" class="headerlink" title="回流和重绘"></a>回流和重绘</h5><ul>
+<li>&#x3D;&#x3D;回流一定会触发重绘,重绘不一定会回流&#x3D;&#x3D;</li>
+<li>&#x3D;&#x3D;回流&#x3D;&#x3D;: 就是节点的几何信息改变,从而导致整体的布局变化,需要重新计算称之为回流.</li>
+<li>&#x3D;&#x3D;重绘&#x3D;&#x3D;:只是节点的颜色,背景颜色等不会造成集合信息改变的变化,只需要重新绘制该节点称之为重绘.</li>
+<li>&#x3D;&#x3D;display:none&#x3D;&#x3D;;会发生回流.不为被隐藏的对象保留其物理空间(看不见也摸不着)</li>
+<li>&#x3D;&#x3D;visibility:hidden&#x3D;&#x3D;;只会触发重.(会保留元素的空间,仅为视觉上的完全透明(看不见,摸的着))</li>
+</ul>
+<h5 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h5><pre><code>//reduce去重
+let arr = [1,2,3,4,4,1] 
+let newArr = arr.reduce((pre,cur)=&gt;&#123; 
+    if(!pre.includes(cur))&#123; 
+        return pre.concat(cur)
+    &#125;
+    return pre 
+&#125;,[])
+console.log(newArr)//[1,2,3,4]
+
+
+//new Set()去重
+let arr = new Set([1,1,2,3,4,4,5,6,7,7])
+
+
+//for循环去重
+let arr = [1,1,2,3,4,4,5,6,7,7]
+for(let i=0;i&lt;arr.length;i++)&#123;
+   for(let j=i+1;j&lt;arr.length;j++)&#123;
+       if(arr[i] === arr[j])&#123;
+           arr.splice(j,1)
+           
+       &#125;
+   &#125; 
+&#125;
+
+
+//indexof去重
+let arr = [1,1,2,3,4,4,5,6,7,7]
+      function unlink(arr)&#123;
+        let newArr = []
+        for(let i of arr)&#123;
+          if(newArr.indexOf(i) === -1)&#123;
+            newArr.push(i)
+          &#125;
+          
+        &#125;
+        return newArr
+      &#125;
+      
+      
+//includes去重
+let arr = [1,1,2,3,4,4,5,6,7,7]
+      function unlink(arr)&#123;
+        let newArr = []
+        for (let i of arr) &#123;
+          if(!newArr.includes(i) )&#123;
+            newArr.push(i)
+          &#125;         
+        &#125;
+        return newArr
+      &#125;
+      
+      
+//filter过滤
+let arr = [1,1,2,3,4,4,5,6,7,7,8,9]
+      arr.filter((item,index,arr) =&gt;&#123;
+      //当前元素,在原始数组中的第一个索引值===当前索引值,否则返回当前元素
+        return arr.indexOf(item,0) === index
+      &#125;)
+</code></pre>
+<ul>
+<li>计算数组中元素出现的次数</li>
+</ul>
+<pre><code>let arr = [&quot;a&quot;,&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;b&quot;,&quot;k&quot;,&quot;l&quot;]
+let times = arr.reduce((newArr,item) =&gt;&#123;
+    if(item in newArr)&#123;
+       newArr[item]++ 
+    &#125;else&#123;
+        newArr[item] = 1
+    &#125;
+    return newArr
+&#125;,&#123;&#125;)
+//&#123;a: 2, b: 2, c: 1, k: 1, l: 1&#125;
+</code></pre>
+<ul>
+<li>数组对象去重</li>
+</ul>
+<pre><code>//通过数组对象中的某一个值进行去重
+let arr = [
+    &#123;key:1,name:&#39;第一&#39;&#125;,
+    &#123;key:2,name:&#39;第二&#39;&#125;,
+    &#123;key:3,name:&#39;第三&#39;&#125;,
+    &#123;key:3,name:&#39;第四&#39;&#125;,
+    &#123;key:4,name:&#39;第五&#39;&#125;,
+]
+let obj = &#123;&#125;
+arr.reduce((cur,item)=&gt;&#123;
+    obj[item.key] ? &quot;&quot; : obj[item.key] = true &amp;&amp; cur.push(item)
+    return cur
+&#125;,[])
+</code></pre>
+<h4 id="前端性能优化"><a href="#前端性能优化" class="headerlink" title="前端性能优化"></a>前端性能优化</h4><p><font color="red">gzip</font> 压缩效率非常高，通常可以达到 70% 的压缩率，也就是说，如果你的网页有 30K，压缩之后就变成了 9K 左右。</p>
+<ul>
+<li>gzip压缩</li>
+</ul>
+<pre><code>//npm i -D compression-webpack-plugin
+// 如果这个值是一个对象，则会通过 webpack-merge 合并到最终的配置中。
+  // 如果这个值是一个函数，则会接收被解析的配置作为参数。该函数及可以修改配置并不返回任何东西，也可以返回一个被克隆或合并过的配置版本。Type: Object | Function
+  configureWebpack: c =&gt; &#123;
+    return &#123;
+      name: &#39;中钢富全智慧矿山平台&#39;,
+      output: &#123; // 输出重构  打包编译后的 文件名称
+        filename: `js/[name].$&#123;Timestamp&#125;.js`,
+        chunkFilename: `js/[name].$&#123;Timestamp&#125;.js`
+      &#125;,
+    &#125;
+  &#125;,
+</code></pre>
+<ul>
+<li>ui按需引入</li>
+<li>代码层面优化</li>
+</ul>
+<ol>
+<li>v-if 和 v-show 区分使用场景</li>
+</ol>
+<ul>
+<li>computed 和 watch  区分使用场景</li>
+</ul>
+<ol>
+<li>computed： 是计算属性，依赖其它属性值，并且 computed 的值有缓存，只有它依赖的属性值发生改变，下一次获取 computed 的值时才会重新计算 computed  的值；</li>
+<li>watch： 更多的是「观察」的作用，类似于某些数据的监听回调 ，每当监听的数据变化时都会执行回调进行后续操作；</li>
+</ol>
+<ul>
+<li>v-for 遍历必须为 item 添加 key，且避免同时使用 v-if</li>
+<li>事件的销毁</li>
+</ul>
+<pre><code>created()&#123;
+    this.$emit(&quot;message&quot;,val)
+&#125;
+beforeUnmount()&#123;
+    this.off(&#39;message&#39;)
+&#125;
+</code></pre>
+<ul>
+<li>图片资源懒加载</li>
+</ul>
+<ol>
+<li>对于图片过多的页面，为了加速页面加载速度，所以很多时候我们需要将页面内未出现在可视区域内的图片先不做加载， 等到滚动到可视区域后再去加载。这样对于页面加载性能上会有很大的提升，也提高了用户体验。我们在项目中使用 Vue 的 vue-lazyload 插件</li>
+</ol>
+<ul>
+<li>路由懒加载：提高首屏加载速度</li>
+<li>Webpack 对图片进行压缩</li>
+</ul>
+<p>设置limit的值,大于limit的原样输出,小于limit的图片打包成base64</p>
+<h4 id="常见状态码"><a href="#常见状态码" class="headerlink" title="常见状态码"></a>常见状态码</h4><ul>
+<li>200 - 成功。</li>
+<li>301 - 永久重定向（配合 location，浏览器自动处理）。</li>
+<li>302 - 临时重定向（配合 location，浏览器自动处理）。</li>
+<li>304 - 资源未被修改。</li>
+<li>401 - 认证失败，无法访问系统资源</li>
+<li>403 - 没权限。</li>
+<li>404 - 资源未找到。</li>
+<li>500 - 服务器错误。</li>
+<li>504 - 网关超时。</li>
+</ul>
+<h4 id="进制转换"><a href="#进制转换" class="headerlink" title="进制转换"></a>进制转换</h4><pre><code>const num = 10;
+
+num.toString(2);
+// 输出: &quot;1010&quot;
+num.toString(16);
+// 输出: &quot;a&quot;
+num.toString(8);
+// 输出: &quot;12&quot;
+</code></pre>
+<h4 id="精度丢失问题"><a href="#精度丢失问题" class="headerlink" title="精度丢失问题"></a>精度丢失问题</h4><pre><code>/**
+ * 解决两个数相加精度丢失问题
+ * @param a
+ * @param b
+ * @returns &#123;Number&#125;
+ */
+export function floatAdd(a, b) &#123;
+    var c, d, e;
+    if (undefined == a || null == a || &#39;&#39; == a || isNaN(a)) &#123;
+        a = 0;
+    &#125;
+    if (undefined == b || null == b || &#39;&#39; == b || isNaN(b)) &#123;
+        b = 0;
+    &#125;
+    try &#123;
+        c = a.toString().split(&#39;.&#39;)[1].length;
+    &#125; catch (f) &#123;
+        c = 0;
+    &#125;
+    try &#123;
+        d = b.toString().split(&#39;.&#39;)[1].length;
+    &#125; catch (f) &#123;
+        d = 0;
+    &#125;
+    e = Math.pow(10, Math.max(c, d));
+    return (floatMul(a, e) + floatMul(b, e)) / e;
+&#125;
+/**
+ * 解决两个数相减精度丢失问题
+ * @param a
+ * @param b
+ * @returns &#123;Number&#125;
+ */
+export function floatSub(a, b) &#123;
+    return (floatMul(a, e) - floatMul(b, e)) / e;
+&#125;
+/**
+ * 解决两个数相乘精度丢失问题
+ * @param a
+ * @param b
+ * @returns &#123;Number&#125;
+ */
+export function floatMul(a, b) &#123;
+    var c = 0,
+        d = a.toString(),
+        e = b.toString();
+    try &#123;
+        c += d.split(&#39;.&#39;)[1].length;
+    &#125; catch (f) &#123;&#125;
+    try &#123;
+        c += e.split(&#39;.&#39;)[1].length;
+    &#125; catch (f) &#123;&#125;
+    return (Number(d.replace(&#39;.&#39;, &#39;&#39;)) * Number(e.replace(&#39;.&#39;, &#39;&#39;))) / Math.pow(10, c);
+&#125;
+/**
+ * 解决两个数相除精度丢失问题
+ * @param a
+ * @param b
+ * @returns
+ */
+export function floatDiv(a, b) &#123;
+    var c,
+        d,
+        e = 0,
+        f = 0;
+    try &#123;
+        e = a.toString().split(&#39;.&#39;)[1].length;
+    &#125; catch (g) &#123;&#125;
+    try &#123;
+        f = b.toString().split(&#39;.&#39;)[1].length;
+    &#125; catch (g) &#123;&#125;
+    return (c = Number(a.toString().replace(&#39;.&#39;, &#39;&#39;))), (d = Number(b.toString().replace(&#39;.&#39;, &#39;&#39;))), floatMul(c / d, Math.pow(10, f - e));
+&#125;
+
+/**
+ * 保留有效数字并且4舍5入
+ * @param &#123;*&#125; v 表示要转换的值 表示要保留的位数
+ * @param &#123;*&#125; e 表示要保留的位数
+ * @returns
+ */
+export function round(v, e) &#123;
+    var t = 1;
+    for (; e &gt; 0; t *= 10, e--);
+    for (; e &lt; 0; t /= 10, e++);
+    return Math.round(v * t) / t;
+&#125;
+
+</code></pre>
+<h4 id="Axios封装"><a href="#Axios封装" class="headerlink" title="Axios封装"></a>Axios封装</h4><pre><code class="javascript">import axios from &#39;axios&#39;;
+
+//遇到传递给后台参数格式为 ?ids=1&amp;ids=2&amp;ids=3这种键名相同形式的数据，需要用到paramsSerializer序列化
+import qs from &#39;qs&#39;;
+const Axios = axios.create(&#123;
+    herader:&#123;
+          &#39;Content-Type&#39;: &#39;application/json;charset=UTF-8&#39;,
+        // ie浏览器get请求兼容问题
+        &#39;Cache-Control&#39;: &#39;no-cache&#39;,
+        &#39;If-Modified-Since&#39;: &#39;0&#39;,
+    &#125;,
+    timeout:0,//设置请求超时
+    withCredentials: false,//是否带上验证信息， 默认：true
+     maxContentLength: -1,//限制最大发送内容长度，默认：-1 不限制
+      baseURL: import.meta.env.VITE_APP_BASE_API,//vite当前运行环境中的变量 import.meta.env而在webpack中获取当前运行的环境变量则用process.argv可以获取命令行的参数，其值无法在项目文件中使用
+&#125;)
+export default function (options) &#123;
+     // 处理默认参数，传参和默认参数合并
+    let config = Object.assign(&#123; method: &#39;get&#39; &#125;, options || &#123;&#125;);
+     // 必须要传入url
+    if (!config.url) &#123;
+        throw new Error(&#39;ajax url is required!&#39;);
+    &#125;
+      let &#123; url, method, data &#125; = config;
+    //如果截取的最后一项是page,那么默认第一页
+    if (config.url.split(&#39;/&#39;).pop() === &#39;page&#39;) &#123;
+        data = Object.assign(&#123; needCount: 1 &#125;, data || &#123;&#125;);
+    &#125;
+       if (config.url.split(&#39;/&#39;).pop() === &#39;export&#39;) &#123;
+        config.responseType = &#39;blob&#39;;
+    &#125;
+     const http = [&#39;get&#39;, &#39;head&#39;, &#39;delete&#39;].includes(method)
+        ? service[method](url, &#123;
+              ...config,
+              params: data,
+          &#125;)
+        : service[method](url, data, config);
+    return http;
+&#125;
+//请求拦截
+service.interceptors.request.use(
+    (config) =&gt; &#123;
+        // 是否需要设置 token
+        const isToken = (config.headers || &#123;&#125;).isToken === false,
+            &#123; token &#125; = user();
+        if (token &amp;&amp; !isToken) &#123;
+            config.headers[&#39;Authorization&#39;] = &#39;Bearer &#39; + token; // 让每个请求携带自定义token 请根据实际情况自行修改
+        &#125;
+        /**
+         * 请求未完成时保存取消的cancelToken
+         */
+        config.cancelToken = new axios.CancelToken((cancel) =&gt; &#123;
+            // 判断是否重复
+            const key = createKey(config);
+            if (axiosPromiseArr.has(key)) &#123;
+                cancel();
+            &#125; else &#123;
+                axiosPromiseArr.set(key, cancel);
+            &#125;
+        &#125;);
+        if (config.method === &#39;get&#39;) &#123;
+            config.paramsSerializer = function (params) &#123;
+                return qs.stringify(params, &#123; arrayFormat: &#39;comma&#39; &#125;);
+            &#125;;
+        &#125;
+        return config;
+    &#125;,
+    (error) =&gt; &#123;
+        ElMessage.error(&#123;
+            message: &#39;加载超时&#39;,
+        &#125;);
+        return Promise.reject(error);
+    &#125;
+);
+</code></pre>
+<h4 id="axios-之cancelToken原理以及使用"><a href="#axios-之cancelToken原理以及使用" class="headerlink" title="axios 之cancelToken原理以及使用"></a>axios 之cancelToken原理以及使用</h4><p>在真实项目中，当路由已经跳转，而上一页的请求还在pending状态，如果数据量小还好，数据量大时，跳到新页面，旧的请求依旧没有停止，这将会十分损耗性能，这时我们应该先取消掉之前还没有获得相应的请求，再跳转页面。这里axios给我们提供了一个方法：</p>
+<pre><code>
+</code></pre>
+<h4 id="数组扁平化"><a href="#数组扁平化" class="headerlink" title="数组扁平化"></a>数组扁平化</h4><pre><code> const arr = [1, [2, [3, [4, 5]]], 6]
+ //方法1 arr.flat(Infinity)
+  //方法2 arr.toString().split(&#39;,&#39;).map(item =&gt; Number(item))
+</code></pre>
+<h4 id="扁平数组Tree化"><a href="#扁平数组Tree化" class="headerlink" title="扁平数组Tree化"></a>扁平数组Tree化</h4><pre><code>let arr = [
+    &#123;id: 1, name: &#39;部门1&#39;, pid: 0&#125;,
+    &#123;id: 2, name: &#39;部门2&#39;, pid: 0&#125;,
+    &#123;id: 3, name: &#39;部门3&#39;, pid: 0&#125;,
+    &#123;id: 4, name: &#39;部门4&#39;, pid: 2&#125;,
+    &#123;id: 5, name: &#39;部门5&#39;, pid: 2&#125;,
+]
+function nest(pid,arr)&#123;
+    return arr.filter(item =&gt;item.pid === pid).map(item=&gt;(&#123;...item,children:nest(item.id,arr)&#125;))
+&#125;
+nest(0,arr)
+</code></pre>
+<h4 id="vue3实现v-model实现"><a href="#vue3实现v-model实现" class="headerlink" title="vue3实现v-model实现"></a>vue3实现v-model实现</h4><pre><code>&lt;!--vue3中就实现了这个功能，v-model绑定的不再是value，而是modelValue，接收的方法也不再是input，而是update:modelValue--&gt;
+&lt;!--父组件--&gt;
+&lt;wm-tinymce
+  ref=&quot;editor&quot;
+  v-model=&quot;data.introduction&quot;
+  :min-height=&quot;400&quot;
+  name=&quot;职能管理&quot;
+  placeholder=&quot;请编辑职能大类&quot;
+/&gt;
+
+&lt;!--子组件--&gt;
+&lt;div class=&quot;tinymce-container&quot;&gt;
+    &lt;editor
+      v-model=&quot;tinymceData&quot;
+      :api-key=&quot;key&quot;
+      :init=&quot;tinymceOptions&quot;
+      :name=&quot;name&quot;
+      :readonly=&quot;tinymceReadOnly&quot;
+    /&gt;
+&lt;/div&gt;
+&lt;script&gt;
+  import &#123; ref, watch, watchEffect &#125; from &#39;vue&#39;
+  import Editor from &#39;@tinymce/tinymce-vue&#39;
+  import &#123; key, plugins, toolbar, setting &#125; from &#39;./config&#39;
+  export default &#123;
+    name: &#39;WmTinymce&#39;,
+    components: &#123; Editor &#125;,
+    props: &#123;
+      modelValue: &#123;
+        type: String,
+        default: &#39;&#39;,
+      &#125;,
+      readOnly: &#123;
+        type: Boolean,
+        default: false,
+      &#125;,
+      options: &#123;
+        type: Object,
+        default() &#123;
+          return &#123; plugins, toolbar &#125;
+        &#125;,
+      &#125;,
+      name: &#123;
+        type: String,
+        default: &#39;&#39;,
+      &#125;,
+    &#125;,
+    emits: [&#39;update:modelValue&#39;],
+    setup(props, &#123; emit &#125;) &#123;
+      const tinymceData = ref(props.modelValue) // 编辑器数据
+      watch(
+        () =&gt; tinymceData.value,
+        (data) =&gt; emit(&#39;update:modelValue&#39;, data)
+      ) // 监听富文本输入值变动
+      return &#123;
+        tinymceData,
+      &#125;
+    &#125;,
+  &#125;
+&lt;/script&gt;
+</code></pre>
+<h4 id="节流函数和防抖函数"><a href="#节流函数和防抖函数" class="headerlink" title="节流函数和防抖函数"></a>节流函数和防抖函数</h4><h4 id="requestAnimationFrame"><a href="#requestAnimationFrame" class="headerlink" title="requestAnimationFrame"></a>requestAnimationFrame</h4><p>requestAnimationFrame比起setTimeout、setInterval的优势主要有两点:<br>1、requestAnimationFrame会把每一帧中的所有DOM操作集中起来,在一次重绘或回流中就完成,并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率,一般来说,这个频率为每秒60帧.<br>2、在隐藏或不可见的元素中,requestAnimationFrame将不会进行重绘或回流，这当然就意味着更少的的cpu，gpu和内存使用量。</p>
+
+      </section>
+
+      
+      
+        <nav class="article-nav">
+          
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+      <div class="card-cover" background-image-lazy data-img="https://w.wallhaven.cc/full/0q/wallhaven-0q2mq0.jpg"></div>
+    
+    <div class="card-text">
+      
+        <a href="/2022/09/01/configs/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">_config.yml配置</h2>
+        </a>
+      
+      <div class="card-text--row">Older</div>
+    </div>
+  </article>
+</div>
+          
+        </nav>
+      
+
+      <section class="page-message-container layout-padding">
+        
+
+
+  
+  
+
+  
+  
+
+
+      </section>
+    </div>
+    <div class="widget-info">
+      <section class="widget-author widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-body">
+    
+      <img src="https://qiniu.sukoshi.xyz/src/images/68686407_p0.jpg" class="soft-size--round soft-style--box" alt="张志岳">
+    
+    
+      <h2>张志岳</h2>
+    
+    
+      <p>贵在坚持~~~</p>
+    
+
+    <div class="count-box">
+      <div class="count-box--item">
+        <svg class="icon icon-article" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M240.51564747 647.74217627h196.07203239c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806V165.10332731c0-33.18142087-30.16492806-60.32985613-60.32985612-60.32985611H245.04038668C225.43318342 104.7734712 210.35071939 119.85593522 210.35071939 139.46313845V617.57724821c0 16.59071043 13.57421762 30.16492806 30.16492808 30.16492806z m663.62841731-452.47392089v482.63884894c0 33.18142087-27.14843525 60.32985613-60.32985612 60.32985613H180.18579134c-33.18142087 0-60.32985613-27.14843525-60.32985612-60.32985613V195.26825538c-49.77213131 0-90.49478418 40.72265287-90.49478417 90.49478417v452.4739209c0 49.77213131 40.72265287 90.49478418 90.49478417 90.49478417h286.56681657c16.59071043 0 30.16492806 13.57421762 30.16492807 30.16492807s13.57421762 30.16492806 30.16492805 30.16492806h90.49478418c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806s13.57421762-30.16492806 30.16492807-30.16492807h286.56681657c49.77213131 0 90.49478418-40.72265287 90.49478417-90.49478417V285.76303955c0-49.77213131-40.72265287-90.49478418-90.49478417-90.49478417zM587.41232014 647.74217627h191.54729318c19.60720323 0 34.68966726-15.08246403 34.68966729-34.68966727V134.93839925c0-16.59071043-13.57421762-30.16492806-30.16492808-30.16492805H617.57724821c-30.16492806 0-60.32985613 27.14843525-60.32985612 60.32985611v452.4739209c0 16.59071043 13.57421762 30.16492806 30.16492805 30.16492806z" fill="currentColor"></path>
+</svg>
+        <span>4</span>
+      </div>
+      <div class="count-box--item">
+        <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
+</svg>
+        2
+      </div>
+      <div class="count-box--item">
+        <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
+</svg>
+        3
+      </div>
+    </div>
+  </div>
+</section>
+
+      
+
+      
+<section class="widet-notice widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-notice" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M512 945.02305225v28.15620663a24.27259221 24.27259221 0 0 1-24.27259221 24.27259335H394.0352a48.54518557 48.54518557 0 0 1-41.74885888-23.78714112l-110.68302222-184.47170332a132.04290333 132.04290333 0 0 1-17.47626667-48.54518557h118.4502511a200.97706667 200.97706667 0 0 1 76.21594113 14.56355556l20.38897777 133.49925888a48.54518557 48.54518557 0 0 0 36.40888888 27.67075555l16.01991111 2.91271112a24.27259221 24.27259221 0 0 1 20.38897778 25.72894889zM997.45185223 463.45481443a194.18074112 194.18074112 0 0 1-38.8361489 116.50844445 24.75804445 24.75804445 0 0 1-36.4088889 0l-34.95253333-34.95253333a24.27259221 24.27259221 0 0 1-2.91271111-30.58346667 97.09036999 97.09036999 0 0 0 0-106.79940665 24.27259221 24.27259221 0 0 1 2.91271111-30.58346666l34.95253333-34.95253334a24.75804445 24.75804445 0 0 1 18.93262223-7.28177777 26.2144 26.2144 0 0 1 17.47626667 9.70903665A194.18074112 194.18074112 0 0 1 997.45185223 463.45481443z m-194.18074112-388.36148111v776.72296335a48.54518557 48.54518557 0 0 1-48.54518556 48.54518443h-28.64165888a48.54518557 48.54518557 0 0 1-33.98163001-14.07810332l-145.63555556-143.20829668A291.27111111 291.27111111 0 0 0 342.57730333 657.63555556H172.18370333a145.63555556 145.63555556 0 0 1-145.63555556-145.63555556v-97.09036999a145.63555556 145.63555556 0 0 1 145.63555556-145.63555556h170.3936a291.27111111 291.27111111 0 0 0 206.31703779-85.43952668l145.63555555-143.20829554a48.54518557 48.54518557 0 0 1 33.98162888-14.07810446H754.72592555a48.54518557 48.54518557 0 0 1 48.54518556 48.54518555z" fill="currentColor"></path>
+</svg>
+    <span>NOTICE</span>
+  </div>
+  <div class="widget-body">
+    <p>随便说点什么叭～</p>
+  </div>
+</section>
+
+
+      <section class="widget-categorys widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
+</svg>
+    <span>CATEGORYS</span>
+  </div>
+  <div class="widget-body">
+    <ul class="categorys-list">
+      
+        <li class="categorys-list-item">
+          <a href="/categories/config/">
+            config (2)
+          </a>
+        </li>
+      
+        <li class="categorys-list-item">
+          <a href="/categories/questions/">
+            questions (2)
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+</section>
+
+      <section class="widget-tags widget-item  layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
+</svg>
+    <span>TAGS</span>
+  </div>
+  <div class="widget-body">
+    <div class="tags-cloud">
+      <a href="/tags/%E9%85%8D%E7%BD%AE/" style="font-size: 20px;" class="tags-cloud-10">配置</a> <a href="/tags/%E9%97%AE%E9%A2%98/" style="font-size: 10px;" class="tags-cloud-0">问题</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 10px;" class="tags-cloud-0">面试题</a>
+    </div>
+  </div>
+</section>
+    </div>
+  </article>
+</div>
+
+    <!-- footer container -->
+<footer id="footer" class="footer">
+  <div class="footer-container">
+    
+    <div class="social-icons">
+      
+        
+      
+        
+      
+        
+      
+        
+          <a href="https://github.com/dashan-vip" class="soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
+            <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+</svg>
+          </a>
+        
+      
+    </div>
+     
+    <p>&copy; 2022-09-01 <a href="/" target="_blank">张志岳</a></p>
+
+    
+    
+    <p>
+      <a href="javascript:;" id="theme-light">🌞 浅色</a>
+      <a href="javascript:;" id="theme-dark">🌛 深色</a>
+      <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+    </p>
+  </div>
+</footer>
+  </div>
+
+  <div class="back-to-top-fixed soft-size--round soft-style--box">
+    <svg class="icon icon-back-to-top" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <path d="M725.333333 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8l-213.333333-213.333333c-17.066667-17.066667-17.066667-42.666667 0-59.733333s42.666667-17.066667 59.733333 0l213.333333 213.333333c17.066667 17.066667 17.066667 42.666667 0 59.733333C746.666667 422.4 738.133333 426.666667 725.333333 426.666667z"></path>
+      <path d="M298.666667 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8-17.066667-17.066667-17.066667-42.666667 0-59.733333l213.333333-213.333333c17.066667-17.066667 42.666667-17.066667 59.733333 0s17.066667 42.666667 0 59.733333l-213.333333 213.333333C320 422.4 311.466667 426.666667 298.666667 426.666667z"></path>
+      <path d="M512 896c-25.6 0-42.666667-17.066667-42.666667-42.666667L469.333333 170.666667c0-25.6 17.066667-42.666667 42.666667-42.666667s42.666667 17.066667 42.666667 42.666667l0 682.666667C554.666667 878.933333 537.6 896 512 896z"></path>
+    </svg>
+  </div>
+
+  
+  <!-- aplayer -->
+
+
+<!-- dplayer -->
+
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+  <!-- 尾部用户自定义相关内容 -->
+</body>
+</html>
