@@ -24,7 +24,7 @@
 
   
 
-  <title>ccdv | BLOG</title>
+  <title>问题总结 | BLOG</title>
 
   
 
@@ -46,7 +46,7 @@
 <!-- header container -->
 <header class="header-container post">
   
-    <div class="post-image" style="background-image: url(https://w.wallhaven.cc/full/01/wallhaven-01329n.jpg)"></div>
+    <div class="post-image" style="background-image: url(https://w.wallhaven.cc/full/ne/wallhaven-ne78w4.jpg)"></div>
   
 
   <!-- navbar -->
@@ -97,18 +97,20 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">ccdv</h1>
+          <h1 class="title-wrap">问题总结</h1>
           <h2 class="title-sub-wrap">
             <strong>张志岳</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2022-08-31T08:01:19.000Z" itemprop="datePublished">2022-08-31</time>
+            <time  class="article-date" datetime="2022-08-31T08:00:37.000Z" itemprop="datePublished">2022-08-31</time>
           </h2>
           <ul class="wrap-list dark">
   
-    <li><a href="/categories/for/">📒 for</a></li>
+    <li><a href="/categories/questions/">📒 questions</a></li>
   
 </ul>
           <ul class="wrap-list dark">
+  
+    <li><a href="/tags/%E9%97%AE%E9%A2%98/">🏷️ 问题</a></li>
   
 </ul>
         </div>
@@ -132,7 +134,12 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        
+        <h4 id="1-el-popover挤压页面问题"><a href="#1-el-popover挤压页面问题" class="headerlink" title="1. el-popover挤压页面问题"></a>1. el-popover挤压页面问题</h4><p>在使用element-plus中的el-popover弹出框组件的时候,如果这个弹框在浏览器显示边缘会造成页面挤压变形,解决方法是添加<code>teleported=&quot;false&quot;</code>(是否将 popover 的下拉列表插入至 body 元素)</p>
+<h4 id="2-Chrome浏览器不能打断点问题解决"><a href="#2-Chrome浏览器不能打断点问题解决" class="headerlink" title="2. Chrome浏览器不能打断点问题解决"></a>2. Chrome浏览器不能打断点问题解决</h4><p>在设置中取消选中 <code>Enable Javascript source maps</code>即可 </p>
+<h4 id="3-文件夹下图片或文件后缀名批量操作"><a href="#3-文件夹下图片或文件后缀名批量操作" class="headerlink" title="3.文件夹下图片或文件后缀名批量操作"></a>3.文件夹下图片或文件后缀名批量操作</h4><pre><code>// 将所有.png后缀的图片改为.jpg
+for /f &quot;delims=&quot; %%a in (&#39;dir /a-d /s /b&#39;) do ( if &quot;%%~xa&quot; == &quot;.png&quot; ren &quot;%%~fsa&quot; &quot;%%~na.jpg&quot;)
+</code></pre>
+
       </section>
 
       
@@ -142,12 +149,12 @@
             <div class="article-nav-item layout-padding">
   <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
     
-      <div class="card-cover" background-image-lazy data-img="https://w.wallhaven.cc/full/0j/wallhaven-0j5gp4.jpg"></div>
+      <div class="card-cover" background-image-lazy data-img="https://w.wallhaven.cc/full/0q/wallhaven-0q2mq0.jpg"></div>
     
     <div class="card-text">
       
-        <a href="/2022/08/31/cctv/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">cctv</h2>
+        <a href="/2022/09/01/configs/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">_config.yml配置</h2>
         </a>
       
       <div class="card-text--row">Newer</div>
@@ -159,10 +166,12 @@
             <div class="article-nav-item layout-padding">
   <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
     
+      <div class="card-cover" background-image-lazy data-img="https://w.wallhaven.cc/full/49/wallhaven-49m6kn.png"></div>
+    
     <div class="card-text">
       
-        <a href="/2022/08/31/info/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">info</h2>
+        <a href="/2022/08/31/hello/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">Hello hexo</h2>
         </a>
       
       <div class="card-text--row">Older</div>
@@ -204,13 +213,13 @@
         <svg class="icon icon-article" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <path d="M240.51564747 647.74217627h196.07203239c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806V165.10332731c0-33.18142087-30.16492806-60.32985613-60.32985612-60.32985611H245.04038668C225.43318342 104.7734712 210.35071939 119.85593522 210.35071939 139.46313845V617.57724821c0 16.59071043 13.57421762 30.16492806 30.16492808 30.16492806z m663.62841731-452.47392089v482.63884894c0 33.18142087-27.14843525 60.32985613-60.32985612 60.32985613H180.18579134c-33.18142087 0-60.32985613-27.14843525-60.32985612-60.32985613V195.26825538c-49.77213131 0-90.49478418 40.72265287-90.49478417 90.49478417v452.4739209c0 49.77213131 40.72265287 90.49478418 90.49478417 90.49478417h286.56681657c16.59071043 0 30.16492806 13.57421762 30.16492807 30.16492807s13.57421762 30.16492806 30.16492805 30.16492806h90.49478418c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806s13.57421762-30.16492806 30.16492807-30.16492807h286.56681657c49.77213131 0 90.49478418-40.72265287 90.49478417-90.49478417V285.76303955c0-49.77213131-40.72265287-90.49478418-90.49478417-90.49478417zM587.41232014 647.74217627h191.54729318c19.60720323 0 34.68966726-15.08246403 34.68966729-34.68966727V134.93839925c0-16.59071043-13.57421762-30.16492806-30.16492808-30.16492805H617.57724821c-30.16492806 0-60.32985613 27.14843525-60.32985612 60.32985611v452.4739209c0 16.59071043 13.57421762 30.16492806 30.16492805 30.16492806z" fill="currentColor"></path>
 </svg>
-        <span>4</span>
+        <span>3</span>
       </div>
       <div class="count-box--item">
         <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
 </svg>
-        4
+        2
       </div>
       <div class="count-box--item">
         <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -249,26 +258,14 @@
     <ul class="categorys-list">
       
         <li class="categorys-list-item">
-          <a href="/categories/for/">
-            for (1)
+          <a href="/categories/config/">
+            config (2)
           </a>
         </li>
       
         <li class="categorys-list-item">
-          <a href="/categories/foo/">
-            foo (1)
-          </a>
-        </li>
-      
-        <li class="categorys-list-item">
-          <a href="/categories/bar/">
-            bar (2)
-          </a>
-        </li>
-      
-        <li class="categorys-list-item">
-          <a href="/categories/foo/bar/">
-            bar (1)
+          <a href="/categories/questions/">
+            questions (1)
           </a>
         </li>
       
@@ -285,7 +282,7 @@
   </div>
   <div class="widget-body">
     <div class="tags-cloud">
-      <a href="/tags/react/" style="font-size: 10px;" class="tags-cloud-0">react</a> <a href="/tags/vue/" style="font-size: 10px;" class="tags-cloud-0">vue</a>
+      <a href="/tags/%E9%85%8D%E7%BD%AE/" style="font-size: 20px;" class="tags-cloud-10">配置</a> <a href="/tags/%E9%97%AE%E9%A2%98/" style="font-size: 10px;" class="tags-cloud-0">问题</a>
     </div>
   </div>
 </section>
