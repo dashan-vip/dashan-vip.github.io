@@ -39,6 +39,9 @@
   
 <link rel="stylesheet" href="/css/style.css">
 
+<link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
+<script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
+<script src="\assets\js\Meting.min.js" class="meting-script-marker"></script>
 </head>
 <body>
   <div class="root-container">
@@ -144,8 +147,12 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h4 id="nextTick"><a href="#nextTick" class="headerlink" title="$nextTick"></a>$nextTick</h4><p>Vue生命周期的created()钩子函数进行的DOM操作一定要放在Vue.nextTick()的回调函数中，原因是在created()钩子函数执行的时候DOM 其实并未进行任何渲染，而此时进行DOM操作无异于徒劳，所以此处一定要将DOM操作的js代码放进Vue.nextTick()的回调函数中。与之对应的就是mounted钩子函数，因为该钩子函数执行时所有的DOM挂载已完成。nextTick 就是设置一个回调，用于异步执行。<br>就是把你设置的回调放在 setTimeout 中执行，这样就算异步了，等待当时同步代码执行完毕再执行。</p>
-<pre><code>  created()&#123;
+        
+    <div id="aplayer-ySUSZTtY" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="465921195" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#555"
+    ></div>
+<h4 id="nextTick"><a href="#nextTick" class="headerlink" title="$nextTick"></a>$nextTick</h4><p>Vue生命周期的created()钩子函数进行的DOM操作一定要放在Vue.nextTick()的回调函数中，原因是在created()钩子函数执行的时候DOM 其实并未进行任何渲染，而此时进行DOM操作无异于徒劳，所以此处一定要将DOM操作的js代码放进Vue.nextTick()的回调函数中。与之对应的就是mounted钩子函数，因为该钩子函数执行时所有的DOM挂载已完成。nextTick 就是设置一个回调，用于异步执行。<br>就是把你设置的回调放在 setTimeout 中执行，这样就算异步了，等待当时同步代码执行完毕再执行。</p>
+<pre><code class="javascript">  created()&#123;
     let that=this;
     that.$nextTick(function()&#123;  //不使用this.$nextTick()方法会报错
         that.$refs.aa.innerHTML=&quot;created中更改了按钮内容&quot;;  //写入到DOM元素
@@ -162,7 +169,7 @@
 <li><p>nodejs 中间件(设置请求头)</p>
 </li>
 </ul>
-<pre><code>app.all(&quot;*&quot;, function(req, res, next) &#123;
+<pre><code class="javascript">app.all(&quot;*&quot;, function(req, res, next) &#123;
    res.header(&quot;Access-Control-Allow-Origin&quot;, &quot;*&quot;);
    res.header(&quot;Access-control-Allow-Headers&quot;, &quot;xCors&quot;);    //允许请求头中携带 xCors
    next();
@@ -171,7 +178,7 @@
 <ul>
 <li>cors</li>
 </ul>
-<pre><code>var express = require(&#39;express&#39;);
+<pre><code class="javascript">var express = require(&#39;express&#39;);
 var app = express();
 var allowCrossDomain = function (req, res, next) &#123;
   res.header(&#39;Access-Control-Allow-Origin&#39;, &#39;http://localhost:3001&#39;);
@@ -184,7 +191,7 @@ app.use(allowCrossDomain);
 <ul>
 <li>websocket</li>
 </ul>
-<pre><code>// Create WebSocket connection.
+<pre><code class="javascript">// Create WebSocket connection.
 const socket = new WebSocket(&#39;ws://localhost:8080&#39;);
 
 // Connection opened
@@ -201,7 +208,7 @@ socket.addEventListener(&#39;message&#39;, function (event) &#123;
 <li>jsonp</li>
 </ul>
 <p>基本原理： 主要就是利用了 script 标签的src没有跨域限制来完成的(只能进行GET请求)。</p>
-<pre><code>&lt;script type=&#39;text/javascript&#39;&gt;
+<pre><code class="javascript">&lt;script type=&#39;text/javascript&#39;&gt;
     window.jsonpCallback = function (res) &#123;
         console.log(res)
     &#125;
@@ -232,7 +239,7 @@ function handle() &#123;
     &#125;;
 &#125;
 </code></pre>
-<pre><code>//节流，滚动
+<pre><code class="javascript">//节流，滚动
 function throttle() &#123;
   let timeout
 
@@ -260,7 +267,7 @@ window.onscroll = throttle()
 <ul>
 <li>call的实现</li>
 </ul>
-<pre><code> Function.prototype.myCall = function(target, ...args) &#123;
+<pre><code class="javascript"> Function.prototype.myCall = function(target, ...args) &#123;
   // this 指向调用 myCall函数的对象
   if (typeof this !== &quot;function&quot;) &#123;
     throw new TypeError(&quot;not a function&quot;)
@@ -281,7 +288,7 @@ let s = foo.myCall(obj, &#39;111&#39;, &#39;222&#39;)
 <ul>
 <li>apply实现</li>
 </ul>
-<pre><code>Function.prototype.myApply = function(target,arg)&#123;
+<pre><code class="javascript">Function.prototype.myApply = function(target,arg)&#123;
      //判断传进来的arg是不是一个数组
      let state = Object.prototype.toString.call(arg).slice(8,-1)
      //判断当前this是不是一个函数
@@ -334,7 +341,7 @@ promise.resolve().then(()=&gt;console.log(4))
 </ul>
 <h4 id="ajax和axios的区别"><a href="#ajax和axios的区别" class="headerlink" title="ajax和axios的区别"></a>ajax和axios的区别</h4><p>&#x3D;&#x3D;ajax:&#x3D;&#x3D; 传统Ajax 指的是new一个 XMLHttpRequest（XHR）代理，最早出现的向后端发送请求的技术，隶属于原始 js 中， 核心使用 XMLHttpRequest 对象，多个请求之间如果有先后关系的话，就会出现 &#x3D;&#x3D;回调地狱&#x3D;&#x3D;</p>
 <p>&#x3D;&#x3D;axios:&#x3D;&#x3D; axios 是一个基于 Promise 的 http请求库，可以用在浏览器和 node.js 中，本质上也是对原生XHR的封装，只不过它是Promise 的实现版本，符合最新的ES规则。</p>
-<pre><code>//请求拦截器
+<pre><code class="javascript">//请求拦截器
 instance.interceptors.request.use(
   config =&gt; &#123;
     const token = sessionStorage.getItem(&#39;token&#39;)
@@ -347,7 +354,7 @@ instance.interceptors.request.use(
     return Promise.reject(err)
   &#125;)
 </code></pre>
-<pre><code>// http response 响应拦截器
+<pre><code class="javascript">// http response 响应拦截器
 instance.interceptors.response.use(
   response =&gt; &#123;
     //拦截响应，做统一处理 
@@ -376,7 +383,7 @@ instance.interceptors.response.use(
 <li>缺点: 无法取消promise,一旦建成就会立即执行,如果不设置回调函数,promise内部返回的错误无法在外部表现出来,当处于pedding状态时,无法得知进行到了哪一步</li>
 <li>Promise.all方法</li>
 </ul>
-<pre><code>Promise.all获得的成功结果的数组里面的数据顺序和Promise.all接收到的数组顺序是一致的，即p1的结果在前，即便p1的结果获取的比p2要晚。这带来了一个绝大的好处：在前端开发请求数据的过程中，偶尔会遇到发送多个请求并根据请求顺序获取和使用数据的场景，使用Promise.all毫无疑问可以解决这个问题。
+<pre><code class="javascript">//Promise.all获得的成功结果的数组里面的数据顺序和Promise.all接收到的数组顺序是一致的，即p1的结果在前，即便p1的结果获取的比p2要晚。这带来了一个绝大的好处：在前端开发请求数据的过程中，偶尔会遇到发送多个请求并根据请求顺序获取和使用数据的场景，使用Promise.all毫无疑问可以解决这个问题。
 let p1 = new Promise((resolve, reject) =&gt; &#123;
   resolve(&#39;成功了&#39;)
 &#125;)
@@ -402,7 +409,7 @@ Promise.all([p1,p3,p2]).then((result) =&gt; &#123;
 <ul>
 <li>手写一个promise.all</li>
 </ul>
-<pre><code>Promise.myAll = (arr) =&gt;&#123;
+<pre><code class="javascript">Promise.myAll = (arr) =&gt;&#123;
     return new Promise((rs,rj) =&gt;&#123;
         //数组长度
         let len = arr.length
@@ -434,7 +441,7 @@ Promise.myAll([p1,p2,p3]).then((res) =&gt;&#123;
 <ul>
 <li>Promise.race方法</li>
 </ul>
-<pre><code>Promse.race就是赛跑的意思，意思就是说，Promise.race([p1, p2, p3])里面哪个结果获得的快，就返回那个结果，不管结果本身是成功状态还是失败状态。
+<pre><code class="javascript">//Promse.race就是赛跑的意思，意思就是说，Promise.race([p1, p2, p3])里面哪个结果获得的快，就返回那个结果，不管结果本身是成功状态还是失败状态。
 let p1 = new Promise((resolve, reject) =&gt; &#123;
   setTimeout(() =&gt; &#123;
     resolve(&#39;success&#39;)
@@ -470,7 +477,7 @@ Promise.race([p1, p2]).then((result) =&gt; &#123;
 <li>hash:比如这个 URL： <a target="_blank" rel="noopener" href="http://www.abc.com/#/hello">http://www.abc.com/#/hello</a> ，hash 的值为 #&#x2F;hello。它的特点在于：hash 虽然出现在 URL 中，但不会被包括在 HTTP 请求中，对后端完全没有影响，因此改变 hash 不会重新加载页面。</li>
 <li>history:push跳转或者replace跳转是不需要请求服务器的！</li>
 </ul>
-<h4 id="数组对象去重"><a href="#数组对象去重" class="headerlink" title="数组对象去重"></a>数组对象去重</h4><pre><code>let log = console.log.bind(console);
+<h4 id="数组对象去重"><a href="#数组对象去重" class="headerlink" title="数组对象去重"></a>数组对象去重</h4><pre><code class="javascript">let log = console.log.bind(console);
 let person = [
     &#123;id: 0, name: &quot;小明&quot;&#125;,
     &#123;id: 1, name: &quot;小张&quot;&#125;,
@@ -496,7 +503,7 @@ log(person);
 <li>var命令会发生变量提升现象,即变量可以在声明之前使用,值为undefined</li>
 <li>const声明一个只读的常量。一旦声明，常量的值就不能改变。不可重复声明</li>
 </ul>
-<pre><code>//第一种场景
+<pre><code class="javascript">//第一种场景
 if (true) &#123;
  // TDZ开始
  tmp = &#39;abc&#39;; // ReferenceError
@@ -529,7 +536,7 @@ for (var i = 0; i &lt; s.length; i++) &#123;
 console.log(i); // 5
 </code></pre>
 <h4 id="class类"><a href="#class类" class="headerlink" title="class类"></a>class类</h4><p> 类不存在变量提升,必须保证子类在父类之后.</p>
-<pre><code>var F = function () &#123;&#125;
+<pre><code class="javascript">var F = function () &#123;&#125;
 Object.prototype.a = function () &#123;&#125;
 Function.prototype.b = function () &#123;&#125;
 
@@ -537,7 +544,7 @@ var f = new F()
 // 请问f有方法a  方法b吗
 f的__proto__指向F.prototype.F.prototype.__proto__指向Object.prototype,所以f可以取到a方法,由于f的原型链没有经过Function.prototype,所以取不到b方法
 </code></pre>
-<pre><code>function Person()&#123;&#125;
+<pre><code class="javascript">function Person()&#123;&#125;
 
 let p1 = new Person()
 let p2 = new Person()
@@ -599,7 +606,7 @@ let obj = &#123;&#125;
 <li>&#x3D;&#x3D;display:none&#x3D;&#x3D;;会发生回流.不为被隐藏的对象保留其物理空间(看不见也摸不着)</li>
 <li>&#x3D;&#x3D;visibility:hidden&#x3D;&#x3D;;只会触发重.(会保留元素的空间,仅为视觉上的完全透明(看不见,摸的着))</li>
 </ul>
-<h5 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h5><pre><code>//reduce去重
+<h5 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h5><pre><code class="javascript">//reduce去重
 let arr = [1,2,3,4,4,1] 
 let newArr = arr.reduce((pre,cur)=&gt;&#123; 
     if(!pre.includes(cur))&#123; 
@@ -663,7 +670,7 @@ let arr = [1,1,2,3,4,4,5,6,7,7,8,9]
 <ul>
 <li>计算数组中元素出现的次数</li>
 </ul>
-<pre><code>let arr = [&quot;a&quot;,&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;b&quot;,&quot;k&quot;,&quot;l&quot;]
+<pre><code class="javascript">let arr = [&quot;a&quot;,&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;b&quot;,&quot;k&quot;,&quot;l&quot;]
 let times = arr.reduce((newArr,item) =&gt;&#123;
     if(item in newArr)&#123;
        newArr[item]++ 
@@ -677,7 +684,7 @@ let times = arr.reduce((newArr,item) =&gt;&#123;
 <ul>
 <li>数组对象去重</li>
 </ul>
-<pre><code>//通过数组对象中的某一个值进行去重
+<pre><code class="javascript">//通过数组对象中的某一个值进行去重
 let arr = [
     &#123;key:1,name:&#39;第一&#39;&#125;,
     &#123;key:2,name:&#39;第二&#39;&#125;,
@@ -726,7 +733,7 @@ arr.reduce((cur,item)=&gt;&#123;
 <li>v-for 遍历必须为 item 添加 key，且避免同时使用 v-if</li>
 <li>事件的销毁</li>
 </ul>
-<pre><code>created()&#123;
+<pre><code class="javascript">created()&#123;
     this.$emit(&quot;message&quot;,val)
 &#125;
 beforeUnmount()&#123;
@@ -755,7 +762,7 @@ beforeUnmount()&#123;
 <li>500 - 服务器错误。</li>
 <li>504 - 网关超时。</li>
 </ul>
-<h4 id="进制转换"><a href="#进制转换" class="headerlink" title="进制转换"></a>进制转换</h4><pre><code>const num = 10;
+<h4 id="进制转换"><a href="#进制转换" class="headerlink" title="进制转换"></a>进制转换</h4><pre><code class="javascript">const num = 10;
 
 num.toString(2);
 // 输出: &quot;1010&quot;
@@ -764,7 +771,7 @@ num.toString(16);
 num.toString(8);
 // 输出: &quot;12&quot;
 </code></pre>
-<h4 id="精度丢失问题"><a href="#精度丢失问题" class="headerlink" title="精度丢失问题"></a>精度丢失问题</h4><pre><code>/**
+<h4 id="精度丢失问题"><a href="#精度丢失问题" class="headerlink" title="精度丢失问题"></a>精度丢失问题</h4><pre><code class="javascript">/**
  * 解决两个数相加精度丢失问题
  * @param a
  * @param b
@@ -930,11 +937,11 @@ service.interceptors.request.use(
 <h4 id="axios-之cancelToken原理以及使用"><a href="#axios-之cancelToken原理以及使用" class="headerlink" title="axios 之cancelToken原理以及使用"></a>axios 之cancelToken原理以及使用</h4><p>在真实项目中，当路由已经跳转，而上一页的请求还在pending状态，如果数据量小还好，数据量大时，跳到新页面，旧的请求依旧没有停止，这将会十分损耗性能，这时我们应该先取消掉之前还没有获得相应的请求，再跳转页面。这里axios给我们提供了一个方法：</p>
 <pre><code>
 </code></pre>
-<h4 id="数组扁平化"><a href="#数组扁平化" class="headerlink" title="数组扁平化"></a>数组扁平化</h4><pre><code> const arr = [1, [2, [3, [4, 5]]], 6]
+<h4 id="数组扁平化"><a href="#数组扁平化" class="headerlink" title="数组扁平化"></a>数组扁平化</h4><pre><code class="javascript"> const arr = [1, [2, [3, [4, 5]]], 6]
  //方法1 arr.flat(Infinity)
   //方法2 arr.toString().split(&#39;,&#39;).map(item =&gt; Number(item))
 </code></pre>
-<h4 id="扁平数组Tree化"><a href="#扁平数组Tree化" class="headerlink" title="扁平数组Tree化"></a>扁平数组Tree化</h4><pre><code>let arr = [
+<h4 id="扁平数组Tree化"><a href="#扁平数组Tree化" class="headerlink" title="扁平数组Tree化"></a>扁平数组Tree化</h4><pre><code class="javascript">let arr = [
     &#123;id: 1, name: &#39;部门1&#39;, pid: 0&#125;,
     &#123;id: 2, name: &#39;部门2&#39;, pid: 0&#125;,
     &#123;id: 3, name: &#39;部门3&#39;, pid: 0&#125;,
@@ -946,7 +953,7 @@ function nest(pid,arr)&#123;
 &#125;
 nest(0,arr)
 </code></pre>
-<h4 id="vue3实现v-model实现"><a href="#vue3实现v-model实现" class="headerlink" title="vue3实现v-model实现"></a>vue3实现v-model实现</h4><pre><code>&lt;!--vue3中就实现了这个功能，v-model绑定的不再是value，而是modelValue，接收的方法也不再是input，而是update:modelValue--&gt;
+<h4 id="vue3实现v-model实现"><a href="#vue3实现v-model实现" class="headerlink" title="vue3实现v-model实现"></a>vue3实现v-model实现</h4><pre><code class="vue">&lt;!--vue3中就实现了这个功能，v-model绑定的不再是value，而是modelValue，接收的方法也不再是input，而是update:modelValue--&gt;
 &lt;!--父组件--&gt;
 &lt;wm-tinymce
   ref=&quot;editor&quot;
@@ -1194,6 +1201,34 @@ nest(0,arr)
 
   
   <!-- aplayer -->
+
+
+  <!-- aplayer 音频 start -->
+  <link rel="stylesheet" href="https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.css">
+  <script type="text/javascript" src="https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.js"></script>
+  <script type="text/javascript">
+    const aplayer = document.querySelectorAll(".aplayer-box");
+    aplayer && initaplayer(aplayer);
+    function initaplayer(els) {
+      let elsArr = Array.from(els);
+      elsArr.forEach(el => {
+        let params = {
+          container: el,
+          audio: { ...el.dataset },
+          theme: "#b7daff",
+          autoplay: false,
+          loop: false,
+          mutex: true,
+        }
+        if (el.dataset.lrc) {
+          params['lrcType'] = 3
+        }
+        new APlayer(params);
+      });
+    }
+  </script>
+  <!-- aplayer 音频 end -->
+  
 
 
 <!-- dplayer -->
