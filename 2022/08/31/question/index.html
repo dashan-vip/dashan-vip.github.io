@@ -136,10 +136,8 @@
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
         <h4 id="1-el-popover挤压页面问题"><a href="#1-el-popover挤压页面问题" class="headerlink" title="1. el-popover挤压页面问题"></a>1. el-popover挤压页面问题</h4><p>在使用element-plus中的el-popover弹出框组件的时候,如果这个弹框在浏览器显示边缘会造成页面挤压变形,解决方法是添加<code>teleported=&quot;false&quot;</code>(是否将 popover 的下拉列表插入至 body 元素)</p>
 <h4 id="2-Chrome浏览器不能打断点问题解决"><a href="#2-Chrome浏览器不能打断点问题解决" class="headerlink" title="2. Chrome浏览器不能打断点问题解决"></a>2. Chrome浏览器不能打断点问题解决</h4><p>在设置中取消选中 <code>Enable Javascript source maps</code>即可 </p>
-<h4 id="3-文件夹下图片或文件后缀名批量操作"><a href="#3-文件夹下图片或文件后缀名批量操作" class="headerlink" title="3.文件夹下图片或文件后缀名批量操作"></a>3.文件夹下图片或文件后缀名批量操作</h4><pre><code>// 将所有.png后缀的图片改为.jpg
-for /f &quot;delims=&quot; %%a in (&#39;dir /a-d /s /b&#39;) do ( if &quot;%%~xa&quot; == &quot;.png&quot; ren &quot;%%~fsa&quot; &quot;%%~na.jpg&quot;)
-</code></pre>
-
+<h4 id="3-文件夹下图片或文件后缀名批量操作"><a href="#3-文件夹下图片或文件后缀名批量操作" class="headerlink" title="3.文件夹下图片或文件后缀名批量操作"></a>3.文件夹下图片或文件后缀名批量操作</h4><pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; 将所有.png后缀的图片改为.jpg
+for &#x2F;f &quot;delims&#x3D;&quot; %%a in (&#39;dir &#x2F;a-d &#x2F;s &#x2F;b&#39;) do ( if &quot;%%~xa&quot; &#x3D;&#x3D; &quot;.png&quot; ren &quot;%%~fsa&quot; &quot;%%~na.jpg&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
       </section>
 
       
@@ -282,6 +280,12 @@ for /f &quot;delims=&quot; %%a in (&#39;dir /a-d /s /b&#39;) do ( if &quot;%%~xa
         </li>
       
         <li class="categorys-list-item">
+          <a href="/categories/%E6%96%B9%E6%B3%95/">
+            方法 (1)
+          </a>
+        </li>
+      
+        <li class="categorys-list-item">
           <a href="/categories/questions/">
             questions (2)
           </a>
@@ -289,12 +293,6 @@ for /f &quot;delims=&quot; %%a in (&#39;dir /a-d /s /b&#39;) do ( if &quot;%%~xa
       
         <li class="categorys-list-item">
           <a href="/categories/questions/%E6%96%B9%E6%B3%95/">
-            方法 (1)
-          </a>
-        </li>
-      
-        <li class="categorys-list-item">
-          <a href="/categories/%E6%96%B9%E6%B3%95/">
             方法 (1)
           </a>
         </li>
