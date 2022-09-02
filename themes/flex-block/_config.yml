@@ -28,8 +28,9 @@ comments:
   # You can get your appid and appkey from https://leancloud.cn
   # 这里appId和appKey一定一定要改成自己的，没有的话去https://leancloud.cn这个网站注册创建一个
   valine:
-    appId:
-    appKey:
+    enable: true
+    appId: oLBEm02F4oMbl9ul97VlQFYP-gzGzoHsz
+    appKey: Keas6iaFzZVUdV9oUMR0OFPB
     avatar: mm
     placeholder: 随便说点什么叭～
     notify: true
@@ -40,7 +41,17 @@ comments:
   disqus:
     website:
     error: 如果你看不到评论，那么就真的看不到评论 w(゜Д゜)w
-
+web_analytics:
+  enable: true
+  leancloud:
+    app_id: oLBEm02F4oMbl9ul97VlQFYP-gzGzoHsz
+    app_key: Keas6iaFzZVUdV9oUMR0OFPB
+post:
+  meta:
+    views:
+      enable: true
+      source: "leancloud"
+      format: "{} 次"
 # dplayer 视频播放
 # docs: http://dplayer.js.org/#/zh-Hans/
 dplayer:
@@ -77,7 +88,7 @@ baidu_analytics:
 # 腾讯分析
 tencent_analytics:
 # 站点ico
-favicon: /favicon.ico
+favicon: https://img.alicdn.com/imgextra/i4/O1CN01Z5paLz1O0zuCC7osS_!!6000000001644-55-tps-83-82.svg
 
 # Social Icon
 social_icon:
@@ -85,5 +96,5 @@ social_icon:
   icons:
     ins:
     zhihu:
-    weibo:
+    weibo: https://weibo.com/7314030044/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1
     github: https://github.com/dashan-vip
