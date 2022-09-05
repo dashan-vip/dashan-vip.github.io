@@ -98,7 +98,7 @@ socket.addEventListener('message', function (event) {
 函数防抖是某一段时间内只执行一次，而函数节流是间隔时间执行。
 
 登录、input输入时候的联想菜单请求发短信等按钮避免用户点击太快，以致于发送了多次请求，需要防抖
-```
+```javascript
 //防抖
 function handle() {
     let timer;
@@ -210,7 +210,7 @@ js是事件驱动单线程执行,在执行任务队列的时候会依次执行,�
 (2)微任务都执行完之后，执行下一个宏任务
 
 微任务队列追加在process.nextTick队列的后面。也属于本轮循环。所以，下面的代码总是先输出
-```
+```javascript
 process.nextTick(()=>console.log(3))
 promise.resolve().then(()=>console.log(4))
 //输出为
@@ -218,17 +218,23 @@ promise.resolve().then(()=>console.log(4))
 //4
 ```
 * 宏任务
+```javascript
 setInterval() ；
 setTimeout()；
 setImmediate(Node独有)；
 requestAnimationFrame(浏览器独有)
 I/O
 UI rendering(浏览器独有)
+```
+
 * 微任务
+```javascript
 new Promise() ；
 new MutaionObserver()；
 process.nextTick(Node独有)
 Object.observe
+```
+
 
 #### ajax和axios的区别
 ==ajax:== 传统Ajax 指的是new一个 XMLHttpRequest（XHR）代理，最早出现的向后端发送请求的技术，隶属于原始 js 中， 核心使用 XMLHttpRequest 对象，多个请求之间如果有先后关系的话，就会出现 ==回调地狱==
@@ -600,7 +606,7 @@ arr.reduce((cur,item)=>{
 #### 前端性能优化
 <font color="red">gzip</font> 压缩效率非常高，通常可以达到 70% 的压缩率，也就是说，如果你的网页有 30K，压缩之后就变成了 9K 左右。
 * gzip压缩
-```
+```javascript
 //npm i -D compression-webpack-plugin
 // 如果这个值是一个对象，则会通过 webpack-merge 合并到最终的配置中。
   // 如果这个值是一个函数，则会接收被解析的配置作为参数。该函数及可以修改配置并不返回任何东西，也可以返回一个被克隆或合并过的配置版本。Type: Object | Function
@@ -852,7 +858,7 @@ function nest(pid,arr){
 nest(0,arr)
 ```
 #### vue3实现v-model实现
-```vue
+```javascript
 <!--vue3中就实现了这个功能，v-model绑定的不再是value，而是modelValue，接收的方法也不再是input，而是update:modelValue-->
 <!--父组件-->
 <wm-tinymce
