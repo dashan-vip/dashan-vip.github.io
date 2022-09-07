@@ -24,7 +24,7 @@
 
   
 
-  <title>问题总结 | BLOG</title>
+  <title>Java基础 | BLOG</title>
 
   
 
@@ -46,7 +46,7 @@
 <!-- header container -->
 <header class="header-container post">
   
-    <div class="post-image" style="background-image: url(https://w.wallhaven.cc/full/ne/wallhaven-ne78w4.jpg)"></div>
+    <div class="post-image" style="background-image: url(https://w.wallhaven.cc/full/wq/wallhaven-wqpmdr.jpg)"></div>
   
 
   <!-- navbar -->
@@ -97,20 +97,20 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">问题总结</h1>
+          <h1 class="title-wrap">Java基础</h1>
           <h2 class="title-sub-wrap">
             <strong>张志岳</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2022-08-31T08:00:37.000Z" itemprop="datePublished">2022-08-31</time>
+            <time  class="article-date" datetime="2022-09-07T01:18:04.000Z" itemprop="datePublished">2022-09-07</time>
           </h2>
           <ul class="wrap-list dark">
   
-    <li><a href="/categories/questions/">📒 questions</a></li>
+    <li><a href="/categories/Java/">📒 Java</a></li>
   
 </ul>
           <ul class="wrap-list dark">
   
-    <li><a href="/tags/%E9%97%AE%E9%A2%98/">🏷️ 问题</a></li>
+    <li><a href="/tags/%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">🏷️ 基本数据类型</a></li>
   
 </ul>
         </div>
@@ -134,42 +134,163 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h4 id="1-el-popover挤压页面问题"><a href="#1-el-popover挤压页面问题" class="headerlink" title="1. el-popover挤压页面问题"></a>1. el-popover挤压页面问题</h4><p>在使用element-plus中的el-popover弹出框组件的时候,如果这个弹框在浏览器显示边缘会造成页面挤压变形,解决方法是添加<code>teleported=&quot;false&quot;</code>(是否将 popover 的下拉列表插入至 body 元素)</p>
-<h4 id="2-Chrome浏览器不能打断点问题解决"><a href="#2-Chrome浏览器不能打断点问题解决" class="headerlink" title="2. Chrome浏览器不能打断点问题解决"></a>2. Chrome浏览器不能打断点问题解决</h4><p>在设置中取消选中 <code>Enable Javascript source maps</code>即可 </p>
-<h4 id="3-文件夹下图片或文件后缀名批量操作"><a href="#3-文件夹下图片或文件后缀名批量操作" class="headerlink" title="3.文件夹下图片或文件后缀名批量操作"></a>3.文件夹下图片或文件后缀名批量操作</h4><pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; 将所有.png后缀的图片改为.jpg
-for &#x2F;f &quot;delims&#x3D;&quot; %%a in (&#39;dir &#x2F;a-d &#x2F;s &#x2F;b&#39;) do ( if &quot;%%~xa&quot; &#x3D;&#x3D; &quot;.png&quot; ren &quot;%%~fsa&quot; &quot;%%~na.jpg&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+        <h4 id="jdk环境变量配置"><a href="#jdk环境变量配置" class="headerlink" title="jdk环境变量配置"></a>jdk环境变量配置</h4><p>在电脑右键-&gt;属性-&gt;高级系统设置-&gt;环境变量-&gt;在系统变量中新建 变量名:JAVA_HOME 变量值:C:\Program File\Java\jdk1.8.0_60</p>
+<h4 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h4><ul>
+<li>单行注释: &#x2F;&#x2F;</li>
+<li>多行注释: &#x2F;**&#x2F;</li>
+<li>文档注释: &#x2F;<em>@autho @version~~~</em>&#x2F;</li>
+</ul>
+<ol>
+<li><p><code>在java源文件中可以声明多个class,但是只能最多有一个类声明为public</code></p>
+</li>
+<li><p><code>要求声明为public的类类名必须与源文件名相同</code></p>
+</li>
+<li><p><code>程序入口是main()方法,格式是固定的</code></p>
+</li>
+<li><p><code>输出语句:System.out.println(&quot;Hello Java !&quot;);先输出数据然后换行  System.out.print(&quot;hello&quot;)只输出数据</code></p>
+</li>
+<li><p>每一行执行语句都以”;”结束</p>
+</li>
+<li><p><code>编译的过程: 编译以后,会生成一个或多个字节码文件,字节码文件名与java源文件中的类名相同</code></p>
+<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">public class Helloworld &#123;
+	public static void main(String[] args)&#123;&#x2F;&#x2F;arguments:参数
+		System.out.println(&quot;Hello Java !&quot;);&#x2F;&#x2F;先输出数据然后换行
+		System.out.print(&quot;hello&quot;);&#x2F;&#x2F;只输出数据
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h5 id="1-JDK-JRE-JVM三者之间的关系-以及JDK-JRE包含的主要结构有哪些"><a href="#1-JDK-JRE-JVM三者之间的关系-以及JDK-JRE包含的主要结构有哪些" class="headerlink" title="1.JDK,JRE,JVM三者之间的关系,以及JDK,JRE包含的主要结构有哪些"></a>1.JDK,JRE,JVM三者之间的关系,以及JDK,JRE包含的主要结构有哪些</h5><p>JDK &#x3D; JRE + Java的开发工具(javac.exe,java.exe,javadoc.exe)<br>JRE &#x3D; JVM + java核心类库</p>
+<h5 id="2-为什么要配置环境变量-如何配置"><a href="#2-为什么要配置环境变量-如何配置" class="headerlink" title="2.为什么要配置环境变量?如何配置"></a>2.为什么要配置环境变量?如何配置</h5><p>JAVA_HOME &#x3D; bin的上层目录</p>
+<p>path&#x3D; %JAVA_HOME%\bin</p>
+<p>配置环境变量是为了在任何文件夹下运行java</p>
+<h5 id="3-常见的几个命令行操作都有哪些"><a href="#3-常见的几个命令行操作都有哪些" class="headerlink" title="3.常见的几个命令行操作都有哪些?"></a>3.常见的几个命令行操作都有哪些?</h5><p>dir &#x2F;&#x2F;列出当前目录下的文件以及文件夹</p>
+<p>cd &#x2F;&#x2F;到根目录</p>
+<p>md &#x2F;&#x2F;创建文件夹</p>
+<p>rd &#x2F;&#x2F;删除文件夹</p>
+<p>del &#x2F;&#x2F;删除文件</p>
+<h4 id="变量的分类"><a href="#变量的分类" class="headerlink" title="变量的分类"></a>变量的分类</h4><p>对每一种数据都定义了明确的具体的数据类型(强类型语言),在内存中分配了不同大小的内存空间</p>
+<table>
+<thead>
+<tr>
+<th>基本数据类型(primitive type)</th>
+<th>引用数据类型(reference type)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数值型 (整数类型(byte,short,int,long)、浮点类型(float,double))</td>
+<td>类(class)</td>
+</tr>
+<tr>
+<td>字符型 (char)</td>
+<td>接口 (interface)</td>
+</tr>
+<tr>
+<td>布尔型 (boolean)</td>
+<td>数组 ([])</td>
+</tr>
+</tbody></table>
+<h4 id="整数类型表示范围"><a href="#整数类型表示范围" class="headerlink" title="整数类型表示范围"></a>整数类型表示范围</h4><ul>
+<li>java各整数类型有固定的表数范围和字段长度,不受具体OS的影响,以保证java程序的可移植性.</li>
+<li>java的整型常量默认为int型,声明long型常量需后加”l”或”L”</li>
+<li>java程序中变量通常声明为int型,除非不足以表示较大的数,才使用long</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>占用储存空间</th>
+<th>表数范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>byte</td>
+<td>1字节&#x3D;8bit</td>
+<td>-128~127</td>
+</tr>
+<tr>
+<td>short</td>
+<td>2字节</td>
+<td>-2^15^~2^15^-1</td>
+</tr>
+<tr>
+<td>int</td>
+<td>4字节</td>
+<td>-2^31^~2^31^-1(约21亿)</td>
+</tr>
+<tr>
+<td>long</td>
+<td>8字节</td>
+<td>-2^63^~2^63^-1</td>
+</tr>
+</tbody></table>
+<ul>
+<li>1MB &#x3D; 1024KB 1KB &#x3D; 1024B</li>
+<li>bit: 计算机中的最小储存单位</li>
+<li>byte: 计算机中基本储存单元</li>
+</ul>
+<h4 id="浮点类型表示范围"><a href="#浮点类型表示范围" class="headerlink" title="浮点类型表示范围"></a>浮点类型表示范围</h4><ul>
+<li>float:单精度,尾数可以精确到7位有效数字</li>
+<li>double: 双精度,精度是float的两倍,通常采用此类型</li>
+<li>java的浮点类型常量默认为double型,声明float型常量,需后加’f’或’F’</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>占用储存空间</th>
+<th>表数范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>单精度 float</td>
+<td>4字节</td>
+<td>-3.403E387~3.403E38</td>
+</tr>
+<tr>
+<td>双精度 (double)</td>
+<td>8字节</td>
+<td>-1.798E308~1.798E308</td>
+</tr>
+</tbody></table>
+<h4 id="字符型表示范围"><a href="#字符型表示范围" class="headerlink" title="字符型表示范围"></a>字符型表示范围</h4><ul>
+<li>定义char型变量,通常使用一对’’,内部只能写一个字符</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>占用储存空间</th>
+<th>表数范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>字符型 char</td>
+<td>2字节</td>
+<td></td>
+</tr>
+</tbody></table>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">char a <span class="token operator">=</span> <span class="token string">'\n'</span><span class="token comment">//换行符</span>
+char b <span class="token operator">=</span> <span class="token string">'\t'</span><span class="token comment">//制表符</span>
+char c <span class="token operator">=</span> <span class="token string">'\r'</span><span class="token comment">//回车符</span>
+char d <span class="token operator">=</span> <span class="token string">'\"'</span><span class="token comment">//双引号</span>
+char e <span class="token operator">=</span> <span class="token string">'\''</span><span class="token comment">//单引号</span>
+char f <span class="token operator">=</span> <span class="token string">'\\'</span><span class="token comment">//反斜线</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
       </section>
 
       
       
         <nav class="article-nav">
           
-            <div class="article-nav-item layout-padding">
-  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
-    
-      <div class="card-cover" background-image-lazy data-img="https://w.wallhaven.cc/full/0q/wallhaven-0q2mq0.jpg"></div>
-    
-    <div class="card-text">
-      
-        <a href="/2022/09/01/configs/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">_config.yml配置</h2>
-        </a>
-      
-      <div class="card-text--row">Newer</div>
-    </div>
-  </article>
-</div>
-          
           
             <div class="article-nav-item layout-padding">
   <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
     
-      <div class="card-cover" background-image-lazy data-img="https://w.wallhaven.cc/full/49/wallhaven-49m6kn.png"></div>
+      <div class="card-cover" background-image-lazy data-img="https://w.wallhaven.cc/full/y4/wallhaven-y47kyn.jpg"></div>
     
     <div class="card-text">
       
-        <a href="/2022/08/31/hello/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">Hello hexo</h2>
+        <a href="/2022/09/02/javascript/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">javascript</h2>
         </a>
       
       <div class="card-text--row">Older</div>
