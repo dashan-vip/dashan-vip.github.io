@@ -138,6 +138,32 @@
 <h4 id="2-Chrome浏览器不能打断点问题解决"><a href="#2-Chrome浏览器不能打断点问题解决" class="headerlink" title="2. Chrome浏览器不能打断点问题解决"></a>2. Chrome浏览器不能打断点问题解决</h4><p>在设置中取消选中 <code>Enable Javascript source maps</code>即可 </p>
 <h4 id="3-文件夹下图片或文件后缀名批量操作"><a href="#3-文件夹下图片或文件后缀名批量操作" class="headerlink" title="3.文件夹下图片或文件后缀名批量操作"></a>3.文件夹下图片或文件后缀名批量操作</h4><pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; 将所有.png后缀的图片改为.jpg
 for &#x2F;f &quot;delims&#x3D;&quot; %%a in (&#39;dir &#x2F;a-d &#x2F;s &#x2F;b&#39;) do ( if &quot;%%~xa&quot; &#x3D;&#x3D; &quot;.png&quot; ren &quot;%%~fsa&quot; &quot;%%~na.jpg&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h4 id="4-画一个平行四边形"><a href="#4-画一个平行四边形" class="headerlink" title="4.画一个平行四边形"></a>4.画一个平行四边形</h4><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>link w100<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>fonts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+<span class="token selector">.link</span><span class="token punctuation">&#123;</span>
+    <span class="token property">margin-bottom</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+    <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> 1px solid #125cb4<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 20%<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> 34px<span class="token punctuation">;</span>
+    <span class="token property">line-height</span><span class="token punctuation">:</span> 34px<span class="token punctuation">;</span>
+    <span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span>
+    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">skew</span><span class="token punctuation">(</span>-20deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token selector">&amp;:hover</span><span class="token punctuation">&#123;</span>
+        <span class="token property">color</span><span class="token punctuation">:</span>blue<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token selector">.fonts</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">font-size</span><span class="token punctuation">:</span> 14px<span class="token punctuation">;</span>
+        <span class="token property">font-weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span>
+        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">skew</span><span class="token punctuation">(</span>20deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+        <span class="token property">text-overflow</span><span class="token punctuation">:</span> ellipsis<span class="token punctuation">;</span>
+        <span class="token property">white-space</span><span class="token punctuation">:</span> nowrap<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
       </section>
 
       
@@ -352,7 +378,7 @@ for &#x2F;f &quot;delims&#x3D;&quot; %%a in (&#39;dir &#x2F;a-d &#x2F;s &#x2F;b&
       
     </div>
      
-    <p>&copy; 2022-09-07 <a href="/" target="_blank">张志岳</a></p>
+    <p>&copy; 2022-09-08 <a href="/" target="_blank">张志岳</a></p>
 
     
     
