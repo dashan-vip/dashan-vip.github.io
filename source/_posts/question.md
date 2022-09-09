@@ -19,3 +19,33 @@ cover: https://w.wallhaven.cc/full/ne/wallhaven-ne78w4.jpg
 // 将所有.png后缀的图片改为.jpg
 for /f "delims=" %%a in ('dir /a-d /s /b') do ( if "%%~xa" == ".png" ren "%%~fsa" "%%~na.jpg")
 ```
+#### 4.画一个平行四边形
+
+```html
+<div class="link w100">
+    <div class="fonts"></div>
+</div>
+<style>
+.link{
+    margin-bottom: 20px;
+    text-align: center;
+    border: 1px solid #125cb4;
+    width: 20%;
+    height: 34px;
+    line-height: 34px;
+    cursor: pointer;
+    transform: skew(-20deg);
+    &:hover{
+        color:blue;
+    }
+    .fonts {
+        font-size: 14px;
+        font-weight: bold;
+        transform: skew(20deg);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+</style>
+```
