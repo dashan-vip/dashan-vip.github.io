@@ -275,6 +275,228 @@ char c <span class="token operator">=</span> <span class="token string">'\r'</sp
 char d <span class="token operator">=</span> <span class="token string">'\"'</span><span class="token comment">//双引号</span>
 char e <span class="token operator">=</span> <span class="token string">'\''</span><span class="token comment">//单引号</span>
 char f <span class="token operator">=</span> <span class="token string">'\\'</span><span class="token comment">//反斜线</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="基本数据类型之间的运算"><a href="#基本数据类型之间的运算" class="headerlink" title="基本数据类型之间的运算"></a>基本数据类型之间的运算</h4><blockquote>
+<p>前提: 这里讨论只是7种基本数据类型变量间运算,不包含boolean类型</p>
+</blockquote>
+<h5 id="1-自动类型提升"><a href="#1-自动类型提升" class="headerlink" title="1. 自动类型提升"></a>1. 自动类型提升</h5><p>当容量小的数据类型的变量与容量大的数据类型的变量做运算时,结果自动提升为容量大的数据类型</p>
+<p>此时的容量大小指的是表示数范围的大和小,比如float容量要大于long的容量</p>
+<p>特殊的：当byte,char,short三种类型做运算时,结果为int型</p>
+<p>byte、char、short –&gt; int –&gt; long –&gt; float –&gt; double –&gt; String</p>
+<h5 id="2-强制类型转换"><a href="#2-强制类型转换" class="headerlink" title="2. 强制类型转换"></a>2. 强制类型转换</h5><p>自动类型提升运算的逆运算。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> test<span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">double</span> i <span class="token operator">=</span> <span class="token number">1.1</span>
+        <span class="token comment">// int j = i //报错:不兼容类型:从double转到int</span>
+        <span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>i <span class="token comment">//需要强制类型转换,但会造成精度丢失</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="字符串类型-String"><a href="#字符串类型-String" class="headerlink" title="字符串类型 String"></a>字符串类型 String</h4><ul>
+<li>String不是基本数据类型,属于引用数据类型</li>
+<li>String可以和8种基本数据类型运算</li>
+</ul>
+<h5 id="将基本数据类型转String类型"><a href="#将基本数据类型转String类型" class="headerlink" title="将基本数据类型转String类型"></a>将基本数据类型转String类型</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">int</span> n1 <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+<span class="token keyword">double</span> n2 <span class="token operator">=</span> <span class="token number">3.14</span><span class="token punctuation">;</span>
+<span class="token keyword">boolean</span> b1 <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+
+<span class="token class-name">String</span> str1 <span class="token operator">=</span> n1 <span class="token operator">+</span> <span class="token string">""</span><span class="token punctuation">;</span>
+<span class="token class-name">String</span> n2 <span class="token operator">=</span> n2 <span class="token operator">+</span> <span class="token string">""</span><span class="token punctuation">;</span>
+<span class="token class-name">String</span> b1 <span class="token operator">=</span> b1 <span class="token operator">+</span> <span class="token string">""</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="String类型转基本数据类型"><a href="#String类型转基本数据类型" class="headerlink" title="String类型转基本数据类型"></a>String类型转基本数据类型</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java">integer<span class="token punctuation">.</span><span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token string">"100"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Double</span><span class="token punctuation">.</span><span class="token function">parseDouble</span><span class="token punctuation">(</span><span class="token string">"3.14"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Boolean</span><span class="token punctuation">.</span><span class="token function">parseBoolean</span><span class="token punctuation">(</span><span class="token string">"true"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//注意：String转换成基本数据类型的时候要确保能够转换，不能将"Hello"转成int型。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="计算机中不同进制的使用说明"><a href="#计算机中不同进制的使用说明" class="headerlink" title="计算机中不同进制的使用说明"></a>计算机中不同进制的使用说明</h4><ul>
+<li>二进制(binary):0,1 满2进1,以0b或0B开头</li>
+<li>十进制(decimal) 0-9, 满10进1</li>
+<li>八进制(octal):0-7, 满8进1,以数字0开头</li>
+<li>十六进制(hex): 0-9及A-F, 满16进1,以0x或0X开头</li>
+</ul>
+<h4 id="变量之进制"><a href="#变量之进制" class="headerlink" title="变量之进制"></a>变量之进制</h4><ul>
+<li>java整数常量默认int类型,当用二进制定义整数时,其第32位是符号位;当long类型时,二进制默认占64位,第64位是符号位</li>
+<li>二进制的整数有如下三种形式</li>
+</ul>
+<blockquote>
+<p>原码:直接将一个数值换成二进制数,最高位是符号位.</p>
+</blockquote>
+<blockquote>
+<p>负数的反码: 是对原码按位取反,只是最高位(符号位)确定为1.</p>
+</blockquote>
+<blockquote>
+<p>负数的补码: 其反码加1.</p>
+</blockquote>
+<ul>
+<li>计算机二进制补码的形式保存所有的整数.<blockquote>
+<p>正数的原码,反码,补码都相同</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>负数的补码是其反码+1</p>
+</blockquote>
+<h4 id="算数运算符使用"><a href="#算数运算符使用" class="headerlink" title="算数运算符使用"></a>算数运算符使用</h4><ul>
+<li>(前)++:先自增1,后运算</li>
+<li>(后)++:先运算,后自增1<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> test <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> a1 <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+		<span class="token keyword">int</span> a2 <span class="token operator">=</span> <span class="token operator">++</span>a1<span class="token punctuation">;</span>
+		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"a1 ="</span> <span class="token operator">+</span> a1 <span class="token operator">+</span> <span class="token string">",a2 ="</span><span class="token operator">+</span>  a2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//a1=11 , a2=11</span>
+		<span class="token keyword">int</span> a3 <span class="token operator">=</span> <span class="token number">21</span><span class="token punctuation">;</span>
+		<span class="token keyword">int</span> a4 <span class="token operator">=</span> a3<span class="token operator">++</span><span class="token punctuation">;</span>
+		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"a3 = "</span><span class="token operator">+</span>a3<span class="token operator">+</span><span class="token string">",a4 = "</span><span class="token operator">+</span>a4<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//a3=22 , a4=21</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h4 id="列如-数字157的情况下-个位数-7-十位数-5-百位数-1"><a href="#列如-数字157的情况下-个位数-7-十位数-5-百位数-1" class="headerlink" title="列如: 数字157的情况下,个位数:7,十位数:5,百位数:1"></a>列如: 数字157的情况下,个位数:7,十位数:5,百位数:1</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> test <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> num <span class="token operator">=</span> <span class="token number">113</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> bai <span class="token operator">=</span> num <span class="token operator">/</span> <span class="token number">100</span><span class="token punctuation">;</span> <span class="token comment">//因为是百位数,当除100时最终类型为int型,所以值等于多少,百位就是多少</span>
+        <span class="token keyword">int</span> shi <span class="token operator">=</span> num <span class="token operator">%</span> <span class="token number">100</span> <span class="token operator">/</span> <span class="token number">10</span><span class="token punctuation">;</span> <span class="token comment">//当num除100取余时,取的余就是十位数(2位),然后取余除10得到的就是十位数</span>
+        <span class="token keyword">int</span> ge <span class="token operator">=</span> num <span class="token operator">%</span> <span class="token number">10</span><span class="token punctuation">;</span> <span class="token comment">//因为最终得到的值是整型,所以除以10最终的余数就是个位数</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"百位为:"</span><span class="token operator">+</span>bai<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"十位为:"</span><span class="token operator">+</span>shi<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"个位为:"</span><span class="token operator">+</span>ge<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h4><table>
+<thead>
+<tr>
+<th>a</th>
+<th>b</th>
+<th>a&amp;b</th>
+<th>a&amp;&amp;b</th>
+<th>a|b</th>
+<th>a||b</th>
+<th>!a</th>
+<th>a^b</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>true</td>
+<td>true</td>
+<td>true</td>
+<td>true</td>
+<td>true</td>
+<td>true</td>
+<td>false</td>
+<td>false</td>
+</tr>
+<tr>
+<td>true</td>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+<td>true</td>
+<td>true</td>
+<td>false</td>
+<td>true</td>
+</tr>
+<tr>
+<td>false</td>
+<td>true</td>
+<td>false</td>
+<td>false</td>
+<td>true</td>
+<td>true</td>
+<td>true</td>
+<td>true</td>
+</tr>
+<tr>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+<td>true</td>
+<td>false</td>
+</tr>
+</tbody></table>
+<h6 id="amp-与-amp-amp-区分"><a href="#amp-与-amp-amp-区分" class="headerlink" title="&amp;与&amp;&amp;区分:"></a>&amp;与&amp;&amp;区分:</h6><p>相同点1. &amp;与&amp;&amp;的运算结果相同</p>
+<p>相同点2. 当符号左边是true时,二者都会执行符号右边的运算</p>
+<p>不同点: 当符号左边为false时,&amp;继续执行符号右边的运算,&amp;&amp;不再执行符号右边的运算</p>
+<h6 id="与-区分"><a href="#与-区分" class="headerlink" title="|与||区分:"></a>|与||区分:</h6><p>相同点1. |与||的运算结果相同</p>
+<p>相同点2. 当符号左边是false时,二者都会执行符号右边的运算</p>
+<p>不同点: 当符号左边为true时,|继续执行符号右边的运算,||不再执行符号右边的运算</p>
+<h6 id="运算符-位运算符"><a href="#运算符-位运算符" class="headerlink" title="运算符: 位运算符"></a>运算符: 位运算符</h6><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>运算</th>
+<th>规范</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&lt;&lt;</td>
+<td>左移</td>
+<td>3&lt;&lt;2&#x3D;12 –&gt;3 *2 *2&#x3D;12</td>
+</tr>
+<tr>
+<td>&gt;&gt;</td>
+<td>右移</td>
+<td>3&gt;&gt;1&#x3D;1 –&gt; 3 &#x2F; 2 &#x3D; 1</td>
+</tr>
+<tr>
+<td>&gt;&gt;&gt;</td>
+<td>无符号右移</td>
+<td>3&gt;&gt;&gt;1&#x3D;1 –&gt; 3 &#x2F; 2&#x3D;1</td>
+</tr>
+<tr>
+<td>&amp;</td>
+<td>与运算</td>
+<td>6 &amp; 3 &#x3D; 2</td>
+</tr>
+<tr>
+<td>|</td>
+<td>或运算</td>
+<td>6 &amp; 3 &#x3D; 7</td>
+</tr>
+<tr>
+<td>^</td>
+<td>异或运算</td>
+<td>6 ^ 3 &#x3D; 5</td>
+</tr>
+<tr>
+<td>~</td>
+<td>取反运算</td>
+<td>~6 &#x3D; -7</td>
+</tr>
+</tbody></table>
+<ul>
+<li>左移n位就是乘以2的n次方。</li>
+</ul>
+<blockquote>
+<p>其功能把”&lt;&lt;”左边的运算数的各二进位全部左移若干位，由”&lt;&lt;”右边的数指定移动的位数，高位丢<br>弃，低位补0。</p>
+</blockquote>
+<blockquote>
+<p>(1) 例如3这个数值，存储在1个字节的空间中，其二进制格式是0000 0011，如果我们把这个数值往左移动2位，那么，就得到0000 1100，此时，表示的十进制是12。</p>
+</blockquote>
+<blockquote>
+<p>(2) 例如2这个数值，存储在1个字节的空间中，其二进制格式是0000 0010，如果我们把它往左移动3位，就得到0001 0000，此时，十进制表示16<br>。</p>
+</blockquote>
+<p>那么，我们可以总结：</p>
+<blockquote>
+<p>(1) 数值3往左移动2位，变成12数值；如同3 * 2^2 &#x3D; 3 * 4 &#x3D; 12；</p>
+</blockquote>
+<blockquote>
+<p>(2) 数值2往左移动3位，变成16数值；如同 2*2^3 &#x3D; 2 * 8 &#x3D; 16；</p>
+</blockquote>
+<blockquote>
+<p>那么，我们可以归纳总结，数值N往左移动X位，得到是数值是N*2^X，就是数值N乘以2的X次方。注意：我们这种计算方式，是在不考虑“溢出”的情况下。</p>
+</blockquote>
+<ul>
+<li>右移n位就是除以2的n次方。</li>
+</ul>
+<blockquote>
+<p>其功能是把”&gt;&gt;”左边的运算数的各二进位全部右移若干位，”&gt;&gt;”右边的数指定移动的位数。</p>
+</blockquote>
+<h6 id="amp-运算"><a href="#amp-运算" class="headerlink" title="&amp;运算"></a>&amp;运算</h6><p>按位与”&amp;”功能是参与运算的两数各对应的二进位相与。只有对应的两个二进位均为1时，结果位才为1 ，否则为0。参与运算的数以补码方式出现。</p>
+<blockquote>
+<p>10的补码(00001010),6的补码(00000111)</p>
+</blockquote>
+<p>10: 00001010</p>
+<p>6: 00000111<br>每位对应&amp;运算得 00000010(对应十进制2)<br>所以10&amp;6结果是2</p>
+
       </section>
 
       
