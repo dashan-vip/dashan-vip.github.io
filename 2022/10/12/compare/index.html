@@ -24,7 +24,7 @@
 
   
 
-  <title>links | BLOG</title>
+  <title>webpack vite 对比 | BLOG</title>
 
   
 
@@ -44,9 +44,9 @@
   <div class="root-container">
     
 <!-- header container -->
-<header class="header-container">
+<header class="header-container post">
   
-    <div class="post-image" style="background-image: url(https://w.wallhaven.cc/full/01/wallhaven-01329n.jpg)"></div>
+    <div class="post-image" style="background-image: url(https://w.wallhaven.cc/full/qz/wallhaven-qzd9dl.png)"></div>
   
 
   <!-- navbar -->
@@ -94,37 +94,104 @@
 
   
   
-
-  
-  
     <div class="header-content">
-      <div class="post-text layout-block layout-padding">
-        <h1 class="title-wrap">links</h1>
-        
+      <div class="post-text layout-block">
+        <div class="layout-margin">
+          <h1 class="title-wrap">webpack vite 对比</h1>
+          <h2 class="title-sub-wrap">
+            <strong>张志岳</strong>
+            <span>发布于</span>
+            <time  class="article-date" datetime="2022-10-12T05:42:59.000Z" itemprop="datePublished">2022-10-12</time>
+          </h2>
+          <ul class="wrap-list dark">
+  
+</ul>
+          <ul class="wrap-list dark">
+  
+    <li><a href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9/">🏷️ 知识点</a></li>
+  
+</ul>
+        </div>
       </div>
     </div>
+  
+
+  
   
   
 </header>
 
-    <!-- 分页(其他自定义页面) -->
+    <!-- 文章 -->
 
-<!-- 自定义页面 -->
-
+<!-- 文章内容 -->
 <div class="body-container">
   <article class="content-container layout-block post-container">
     <div class="article-info">
       
+      
+      
+      
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <p>fdsssss</p>
+        <h3 id="webpack-vite-对比"><a href="#webpack-vite-对比" class="headerlink" title="webpack vite 对比"></a>webpack vite 对比</h3><h4 id="二者用到的底层语言不通"><a href="#二者用到的底层语言不通" class="headerlink" title="二者用到的底层语言不通"></a>二者用到的底层语言不通</h4><p><code>webpack</code>是基于<code>nodejs</code>构建的,js 是以毫秒计数的。<br><code>vite</code>是基于<code>esbulid</code>预构建依赖，<code>esbulid</code>是采用<code>go</code>语言编写的，<code>go</code>语言是纳秒级别的。<br>总结：因为<code>js</code>是毫秒级别，<code>go</code>语言是纳秒级别。所以<code>vite</code>比<code>webpack</code>打包器快<code>10-100</code>倍。</p>
+<h4 id="打包过程"><a href="#打包过程" class="headerlink" title="打包过程"></a>打包过程</h4><p><code>webpack</code>:分析各个模块间的依赖-&gt;然后进行编译打包-&gt;打包后的代码在本地服务器渲染。随着模块增多,打包的体积变大,造成热更新速度变慢。<br><code>vite</code>:启动服务器-&gt;请求模块时按需动态编译显示。(<code>vite</code> 遵循的是 <code>ES Modules</code> 模块规范(在编译时就确定模块依赖关系即输入输出)来执行代码,不需要打包编译成 <code>es5</code> 模块即可在浏览器运行。)<br>总结:<code>vite</code> 启动时候不需要分析各个模块之间的依赖关系、不需要打包编译。<code>vite</code>可按需动态编译缩短时间。当项目复杂、模块越多的情况下,<code>vite</code>明显优于<code>webpack</code>。</p>
+<h4 id="热更新"><a href="#热更新" class="headerlink" title="热更新"></a>热更新</h4><p><code>webpack</code> :模块以及模块依赖的模块需重新编译<br><code>vite</code> :浏览器重新请求改模块即可<br>总结:<code>vite</code>热更新效率高。</p>
 
       </section>
 
       
       
+        <nav class="article-nav">
+          
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+      <div class="card-cover" background-image-lazy data-img="https://w.wallhaven.cc/full/p9/wallhaven-p93rpe.jpg"></div>
+    
+    <div class="card-text">
+      
+        <a href="/2022/10/12/offlinemaps/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">vue3.0 中使用百度离线地图</h2>
+        </a>
+      
+      <div class="card-text--row">Older</div>
+    </div>
+  </article>
+</div>
+          
+        </nav>
+      
 
-      
-      
+      <section class="page-message-container layout-padding">
+        
+
+
+  
+  
+    <div class="valine-container comments-container content-padding--primary soft-size--large soft-style--box">
+      <div id="valine_thread" class="valine-thread"></div>
+    </div>
+    <script type="text/javascript" src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script type="text/javascript" src='//unpkg.com/valine/dist/Valine.min.js'></script>
+    <script type="text/javascript">
+      new Valine({
+        el: "#valine_thread",
+        appId: "oLBEm02F4oMbl9ul97VlQFYP-gzGzoHsz",
+        appKey: "Keas6iaFzZVUdV9oUMR0OFPB",
+        avatar: "mm",
+        placeholder: "随便说点什么叭～",
+        notify: true,
+        visitor: true,
+        pageSize: 10,
+      });
+    </script>
+  
+
+  
+  
+
+
+      </section>
     </div>
     <div class="widget-info">
       <section class="widget-author widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
@@ -161,6 +228,8 @@
     </div>
   </div>
 </section>
+
+      
 
       
 <section class="widet-notice widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
@@ -236,7 +305,6 @@
     </div>
   </article>
 </div>
-
 
     <!-- footer container -->
 <footer id="footer" class="footer">
