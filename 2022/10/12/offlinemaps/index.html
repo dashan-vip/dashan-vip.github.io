@@ -24,7 +24,7 @@
 
   
 
-  <title>问题总结 | BLOG</title>
+  <title>offlinemaps | BLOG</title>
 
   
 
@@ -46,7 +46,7 @@
 <!-- header container -->
 <header class="header-container post">
   
-    <div class="post-image" style="background-image: url(https://w.wallhaven.cc/full/ne/wallhaven-ne78w4.jpg)"></div>
+    <div class="post-image" style="background-image: url(https://w.wallhaven.cc/full/p9/wallhaven-p93rpe.jpg)"></div>
   
 
   <!-- navbar -->
@@ -97,20 +97,20 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">问题总结</h1>
+          <h1 class="title-wrap">offlinemaps</h1>
           <h2 class="title-sub-wrap">
             <strong>张志岳</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2022-08-31T08:00:37.000Z" itemprop="datePublished">2022-08-31</time>
+            <time  class="article-date" datetime="2022-10-12T03:04:52.000Z" itemprop="datePublished">2022-10-12</time>
           </h2>
           <ul class="wrap-list dark">
   
-    <li><a href="/categories/questions/">📒 questions</a></li>
+    <li><a href="/categories/config/">📒 config</a></li>
   
 </ul>
           <ul class="wrap-list dark">
   
-    <li><a href="/tags/%E9%97%AE%E9%A2%98/">🏷️ 问题</a></li>
+    <li><a href="/tags/%E5%9C%B0%E5%9B%BE/">🏷️ 地图</a></li>
   
 </ul>
         </div>
@@ -134,37 +134,92 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h4 id="1-el-popover挤压页面问题"><a href="#1-el-popover挤压页面问题" class="headerlink" title="1. el-popover挤压页面问题"></a>1. el-popover挤压页面问题</h4><p>在使用element-plus中的el-popover弹出框组件的时候,如果这个弹框在浏览器显示边缘会造成页面挤压变形,解决方法是添加<code>teleported=&quot;false&quot;</code>(是否将 popover 的下拉列表插入至 body 元素)</p>
-<h4 id="2-Chrome浏览器不能打断点问题解决"><a href="#2-Chrome浏览器不能打断点问题解决" class="headerlink" title="2. Chrome浏览器不能打断点问题解决"></a>2. Chrome浏览器不能打断点问题解决</h4><p>在设置中取消选中 <code>Enable Javascript source maps</code>即可 </p>
-<h4 id="3-文件夹下图片或文件后缀名批量操作"><a href="#3-文件夹下图片或文件后缀名批量操作" class="headerlink" title="3.文件夹下图片或文件后缀名批量操作"></a>3.文件夹下图片或文件后缀名批量操作</h4><pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; 将所有.png后缀的图片改为.jpg
-for &#x2F;f &quot;delims&#x3D;&quot; %%a in (&#39;dir &#x2F;a-d &#x2F;s &#x2F;b&#39;) do ( if &quot;%%~xa&quot; &#x3D;&#x3D; &quot;.png&quot; ren &quot;%%~fsa&quot; &quot;%%~na.jpg&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h4 id="4-画一个平行四边形"><a href="#4-画一个平行四边形" class="headerlink" title="4.画一个平行四边形"></a>4.画一个平行四边形</h4><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>link w100<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>fonts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
-<span class="token selector">.link</span><span class="token punctuation">&#123;</span>
-    <span class="token property">margin-bottom</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
-    <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
-    <span class="token property">border</span><span class="token punctuation">:</span> 1px solid #125cb4<span class="token punctuation">;</span>
-    <span class="token property">width</span><span class="token punctuation">:</span> 20%<span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span> 34px<span class="token punctuation">;</span>
-    <span class="token property">line-height</span><span class="token punctuation">:</span> 34px<span class="token punctuation">;</span>
-    <span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span>
-    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">skew</span><span class="token punctuation">(</span>-20deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token selector">&amp;:hover</span><span class="token punctuation">&#123;</span>
-        <span class="token property">color</span><span class="token punctuation">:</span>blue<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token selector">.fonts</span> <span class="token punctuation">&#123;</span>
-        <span class="token property">font-size</span><span class="token punctuation">:</span> 14px<span class="token punctuation">;</span>
-        <span class="token property">font-weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span>
-        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">skew</span><span class="token punctuation">(</span>20deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
-        <span class="token property">text-overflow</span><span class="token punctuation">:</span> ellipsis<span class="token punctuation">;</span>
-        <span class="token property">white-space</span><span class="token punctuation">:</span> nowrap<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h6 id="巡检项目-当同一form表单中两个下拉菜单请求的数据是一样的会进行拦截返回空数组-解决方法是通过监听请求进行赋值"><a href="#巡检项目-当同一form表单中两个下拉菜单请求的数据是一样的会进行拦截返回空数组-解决方法是通过监听请求进行赋值" class="headerlink" title="(巡检项目)当同一form表单中两个下拉菜单请求的数据是一样的会进行拦截返回空数组,解决方法是通过监听请求进行赋值"></a>(巡检项目)当同一form表单中两个下拉菜单请求的数据是一样的会进行拦截返回空数组,解决方法是通过监听请求进行赋值</h6><h6 id="vue在传递参数的时候为什么有时候加”-”有时候不加"><a href="#vue在传递参数的时候为什么有时候加”-”有时候不加" class="headerlink" title="vue在传递参数的时候为什么有时候加”:”有时候不加?"></a>vue在传递参数的时候为什么有时候加”:”有时候不加?</h6><p>加了冒号表示这个参数是动态的，随着父组件的值改变，子组件的值也相应改变。不加表示传递的都是这个值，是不会变得,是个常量.</p>
+        <h3 id="vue3-0-中使用百度离线地图"><a href="#vue3-0-中使用百度离线地图" class="headerlink" title="vue3.0 中使用百度离线地图"></a>vue3.0 中使用百度离线地图</h3><h4 id="百度离线地图步骤"><a href="#百度离线地图步骤" class="headerlink" title="百度离线地图步骤"></a>百度离线地图步骤</h4><p>瓦片图下载器地址：下面会用到瓦片图和一些离线资源。下载链接: <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1t6o9sig1H5KqxyllNryN0Q"><code>https://pan.baidu.com/s/1t6o9sig1H5KqxyllNryN0Q</code></a> 提取码: <code>e7sn</code>。</p>
+<p>从网盘下载资源解压后会有两个文件夹</p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3dcfd9c26ef94dc1b73f303a2dc2d464~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>项目文件目录如下</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5dc79420e74246b9aa5091581dbfd5c9~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>在 public 下创建 static 文件夹,将网盘中<code>bmap_offline_demo</code>文件夹下的这些文件放到创建的 static 中</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/81bd5f11b810400598a1f8a2a4804272~tplv-k3u1fbpfcp-watermark.image" alt="image.png"><br>打开<code>map_load.js</code>进行一些相关的配置将下载的的瓦片图放到 static 下面,或者通过 nginx 代理</p>
+<p><code>注意:下载的瓦片图文件夹命名要与配置路径中的名称一致。瓦片图有些后缀是.jpg有些后缀是png,要统一转为.png或者.jpg</code></p>
+<p>图片后缀批量处理方法<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1t6o9sig1H5KqxyllNryN0Q"><code>https://pan.baidu.com/s/1t6o9sig1H5KqxyllNryN0Q</code></a></p>
+<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">var bmapcfg &#x3D; &#123;
+    imgext: &#39;.png&#39;, &#x2F;&#x2F;瓦片图的后缀 ------ 根据需要修改，一般是 .png .jpg
+    tiles_dir: &#96;&#x2F;static&#x2F;tiles&#96;, &#x2F;&#x2F;普通瓦片图的地址，为空默认在 offlinemap&#x2F;tiles&#x2F; 目录
+    tiles_hybrid: &#96;&#x2F;static&#x2F;tiles_hybrid&#96;, &#x2F;&#x2F;卫星瓦片图的地址，为空默认在 offlinemap&#x2F;tiles_hybrid&#x2F; 目录
+    tiles_self: &#39;&#39;, &#x2F;&#x2F;自定义图层的地址，为空默认在 offlinemap&#x2F;tiles_self&#x2F; 目录
+&#125;;
+
+&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;下面的保持不动&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;
+var scripts &#x3D; document.getElementsByTagName(&#39;script&#39;);
+var JS__FILE__ &#x3D; scripts[scripts.length - 1].getAttribute(&#39;src&#39;); &#x2F;&#x2F;获得当前js文件路径
+bmapcfg.home &#x3D; JS__FILE__.substr(0, JS__FILE__.lastIndexOf(&#39;&#x2F;&#39;) + 1); &#x2F;&#x2F;地图API主目录
+(function () &#123;
+    window.BMap_loadScriptTime &#x3D; new Date().getTime();
+    &#x2F;&#x2F;加载地图API主文件
+    document.write(&#39;&lt;script type&#x3D;&quot;text&#x2F;javascript&quot; src&#x3D;&quot;&#39; + bmapcfg.home + &#39;bmap_offline_api_v3.0_min.js&quot;&gt;&lt;&#x2F;script&gt;&#39;);
+    &#x2F;&#x2F;加载扩展函数
+    document.write(&#39;&lt;script type&#x3D;&quot;text&#x2F;javascript&quot; src&#x3D;&quot;&#39; + bmapcfg.home + &#39;map_plus.js&quot;&gt;&lt;&#x2F;script&gt;&#39;);
+    &#x2F;&#x2F;加载城市坐标
+    document.write(&#39;&lt;script type&#x3D;&quot;text&#x2F;javascript&quot; src&#x3D;&quot;&#39; + bmapcfg.home + &#39;map_city.js&quot;&gt;&lt;&#x2F;script&gt;&#39;);
+&#125;)();
+&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>配置完成后将<code>map_load.js</code>引入到<code>index.html</code>中,vite 项目中引入如下:</p>
+<ol>
+<li>引入 vite-plugin-html 插件,配置插件</li>
+</ol>
+<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">&#x2F;&#x2F;在vite中引入map_load.js
+import &#123; defineConfig, loadEnv &#125; from &#39;vite&#39;;
+import vue from &#39;@vitejs&#x2F;plugin-vue&#39;;
+&#x2F;&#x2F; html内容调整 插件
+import &#123; createHtmlPlugin &#125; from &#39;vite-plugin-html&#39;;
+export default (&#123; command, mode &#125;) &#x3D;&gt; &#123;
+    const plugins &#x3D; [
+        vue(),
+           &#x2F;**
+         *  注入环境变量到html模板中
+         *  如在  .env文件中有环境变量  VITE_APP_TITLE&#x3D;admin
+         *  则在 html模板中  可以这样获取  &lt;%- VITE_APP_TITLE %&gt;
+         *  文档：  https:&#x2F;&#x2F;github.com&#x2F;anncwb&#x2F;vite-plugin-html
+         *&#x2F;
+        createHtmlPlugin(&#123;
+            inject: &#123;
+                data: &#123;
+                    injectMapScript: &#96;&lt;script src&#x3D;&quot;&#x2F;static&#x2F;map_load.js&quot;&gt;&lt;&#x2F;script&gt;&#96;,
+                &#125;,
+            &#125;,
+            minify: true,
+        &#125;),
+
+    ]
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol start="2">
+<li>在 index.html 中引入</li>
+</ol>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  &lt;%- injectMapScript %>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>然后就可以在项目中使用了</p>
+<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">&lt;template&gt;
+    &lt;div id&#x3D;&quot;Map&quot; class&#x3D;&quot;w100 h100&quot; &#x2F;&gt;
+&lt;&#x2F;template&gt;
+&lt;script setup &gt;
+    function initFn() &#123;
+        map &#x3D; new BMap.Map(&#39;Map&#39;, &#123; minZoom: 13, maxZoom: 19 &#125;);&#x2F;&#x2F;1. 创建地图实例时，通过opts方式设置地图允许的最大最小级别
+        map.centerAndZoom(new BMap.Point(120.06, 29.3), 14); &#x2F;&#x2F; 创建中心点坐标 初始化地图，设置中心点坐标和地图级别
+        map.setCurrentCity(&#39;金华&#39;); &#x2F;&#x2F; 设置地图显示的城市 此项是必须设置的
+        map.enableScrollWheelZoom(); &#x2F;&#x2F;开启鼠标滚轮缩放
+        map.setMapType(BMAP_HYBRID_MAP); &#x2F;&#x2F;设置默认显示卫星混合图
+    &#125;
+    &#x2F;&#x2F; 地图初始化
+    onMounted(() &#x3D;&gt; &#123;
+        initFn();
+    &#125;);
+&lt;&#x2F;script&gt;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
       </section>
 
@@ -172,32 +227,16 @@ for &#x2F;f &quot;delims&#x3D;&quot; %%a in (&#39;dir &#x2F;a-d &#x2F;s &#x2F;b&
       
         <nav class="article-nav">
           
-            <div class="article-nav-item layout-padding">
-  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
-    
-      <div class="card-cover" background-image-lazy data-img="https://w.wallhaven.cc/full/0q/wallhaven-0q2mq0.jpg"></div>
-    
-    <div class="card-text">
-      
-        <a href="/2022/09/01/configs/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">_config.yml配置</h2>
-        </a>
-      
-      <div class="card-text--row">Newer</div>
-    </div>
-  </article>
-</div>
-          
           
             <div class="article-nav-item layout-padding">
   <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
     
-      <div class="card-cover" background-image-lazy data-img="https://w.wallhaven.cc/full/49/wallhaven-49m6kn.png"></div>
+      <div class="card-cover" background-image-lazy data-img="https://w.wallhaven.cc/full/wq/wallhaven-wqpmdr.jpg"></div>
     
     <div class="card-text">
       
-        <a href="/2022/08/31/hello/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">Hello hexo</h2>
+        <a href="/2022/09/07/javaBase/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">Java基础</h2>
         </a>
       
       <div class="card-text--row">Older</div>
