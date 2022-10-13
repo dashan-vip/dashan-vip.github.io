@@ -24,7 +24,7 @@
 
   
 
-  <title>问题总结 | BLOG</title>
+  <title>display grid 属性 | BLOG</title>
 
   
 
@@ -46,7 +46,7 @@
 <!-- header container -->
 <header class="header-container post">
   
-    <div class="post-image" style="background-image: url(https://w.wallhaven.cc/full/ne/wallhaven-ne78w4.jpg)"></div>
+    <div class="post-image" style="background-image: url(https://w.wallhaven.cc/full/l8/wallhaven-l8q9pr.jpg)"></div>
   
 
   <!-- navbar -->
@@ -97,20 +97,20 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">问题总结</h1>
+          <h1 class="title-wrap">display grid 属性</h1>
           <h2 class="title-sub-wrap">
             <strong>张志岳</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2022-08-31T08:00:37.000Z" itemprop="datePublished">2022-08-31</time>
+            <time  class="article-date" datetime="2022-10-13T07:08:43.000Z" itemprop="datePublished">2022-10-13</time>
           </h2>
           <ul class="wrap-list dark">
   
-    <li><a href="/categories/questions/">📒 questions</a></li>
+    <li><a href="/categories/Css/">📒 Css</a></li>
   
 </ul>
           <ul class="wrap-list dark">
   
-    <li><a href="/tags/%E9%97%AE%E9%A2%98/">🏷️ 问题</a></li>
+    <li><a href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9/">🏷️ 知识点</a></li>
   
 </ul>
         </div>
@@ -134,37 +134,113 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h4 id="1-el-popover挤压页面问题"><a href="#1-el-popover挤压页面问题" class="headerlink" title="1. el-popover挤压页面问题"></a>1. el-popover挤压页面问题</h4><p>在使用element-plus中的el-popover弹出框组件的时候,如果这个弹框在浏览器显示边缘会造成页面挤压变形,解决方法是添加<code>teleported=&quot;false&quot;</code>(是否将 popover 的下拉列表插入至 body 元素)</p>
-<h4 id="2-Chrome浏览器不能打断点问题解决"><a href="#2-Chrome浏览器不能打断点问题解决" class="headerlink" title="2. Chrome浏览器不能打断点问题解决"></a>2. Chrome浏览器不能打断点问题解决</h4><p>在设置中取消选中 <code>Enable Javascript source maps</code>即可 </p>
-<h4 id="3-文件夹下图片或文件后缀名批量操作"><a href="#3-文件夹下图片或文件后缀名批量操作" class="headerlink" title="3.文件夹下图片或文件后缀名批量操作"></a>3.文件夹下图片或文件后缀名批量操作</h4><pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; 将所有.png后缀的图片改为.jpg
-for &#x2F;f &quot;delims&#x3D;&quot; %%a in (&#39;dir &#x2F;a-d &#x2F;s &#x2F;b&#39;) do ( if &quot;%%~xa&quot; &#x3D;&#x3D; &quot;.png&quot; ren &quot;%%~fsa&quot; &quot;%%~na.jpg&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h4 id="4-画一个平行四边形"><a href="#4-画一个平行四边形" class="headerlink" title="4.画一个平行四边形"></a>4.画一个平行四边形</h4><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>link w100<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>fonts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
-<span class="token selector">.link</span><span class="token punctuation">&#123;</span>
-    <span class="token property">margin-bottom</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
-    <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
-    <span class="token property">border</span><span class="token punctuation">:</span> 1px solid #125cb4<span class="token punctuation">;</span>
-    <span class="token property">width</span><span class="token punctuation">:</span> 20%<span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span> 34px<span class="token punctuation">;</span>
-    <span class="token property">line-height</span><span class="token punctuation">:</span> 34px<span class="token punctuation">;</span>
-    <span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span>
-    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">skew</span><span class="token punctuation">(</span>-20deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token selector">&amp;:hover</span><span class="token punctuation">&#123;</span>
-        <span class="token property">color</span><span class="token punctuation">:</span>blue<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token selector">.fonts</span> <span class="token punctuation">&#123;</span>
-        <span class="token property">font-size</span><span class="token punctuation">:</span> 14px<span class="token punctuation">;</span>
-        <span class="token property">font-weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span>
-        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">skew</span><span class="token punctuation">(</span>20deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
-        <span class="token property">text-overflow</span><span class="token punctuation">:</span> ellipsis<span class="token punctuation">;</span>
-        <span class="token property">white-space</span><span class="token punctuation">:</span> nowrap<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
+        <h4 id="grid-属性"><a href="#grid-属性" class="headerlink" title="grid 属性"></a>grid 属性</h4><p><code>Grid</code> 是二维网格系统。它可以用来构建复杂的布局以及较小的界面。</p>
+<h5 id="属性-grid-template-columns"><a href="#属性-grid-template-columns" class="headerlink" title="属性:grid-template-columns"></a>属性:<code>grid-template-columns</code></h5><p>定义列，按照你希望它们在网格中出现的顺序，把 grid -template-columns 属性设置为列大小</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.grid</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span>
+  <span class="token property">grid-template-columns</span><span class="token punctuation">:</span> 100px 100px 100px<span class="token punctuation">;</span> // 定义三个宽度为100px的单元格
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="属性-grid-template-rows"><a href="#属性-grid-template-rows" class="headerlink" title="属性: grid-template-rows"></a>属性: grid-template-rows</h5><p>grid-template-rows 用于定义网格中行的数量和大小。</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.grid</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span>
+  <span class="token property">grid-template-columns</span><span class="token punctuation">:</span> 100px 100px 100px<span class="token punctuation">;</span>
+  <span class="token property">grid-template-rows</span><span class="token punctuation">:</span> 100px 100px 100px<span class="token punctuation">;</span> // 高度 与‘columns’类似
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="属性-grid-template"><a href="#属性-grid-template" class="headerlink" title="属性: grid-template"></a>属性: grid-template</h5><p>grid 是 grid-template-rows、grid-template-clumns 和 grid-template-areas 三个属性的简写。</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.grid</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span>
+  <span class="token property">grid-template</span><span class="token punctuation">:</span>
+    <span class="token string">"header header  header"</span> 80px
+    <span class="token string">"nav    article article"</span> 600px
+    / 100px 1fr<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="属性-fr"><a href="#属性-fr" class="headerlink" title="属性: fr"></a>属性: fr</h5><p>fr 是为 css 网格布局创建的新单位。 fr 使你不需要计算百分比就能创建灵活的网格， 1fr 表示可用空间的一等份。</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.grid</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span>
+  <span class="token property">grid-template-columns</span><span class="token punctuation">:</span> 3fr 4fr 3fr<span class="token punctuation">;</span> // 宽度分为3+4+3=10个等份，4个单元格分别占3、4、3份
+  <span class="token property">grid-template-columns</span><span class="token punctuation">:</span> 3fr 4fr 3fr 2fr<span class="token punctuation">;</span> // 宽度分为3+4+3+2=12个等份，4个单元格分别占3、4、3、2份
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="属性-grid-auto-flow"><a href="#属性-grid-auto-flow" class="headerlink" title="属性: grid-auto-flow"></a>属性: grid-auto-flow</h5><p>grid-auto-flow 属性控制 网格单元 如何流入网格，其默认值为 row。网格中的“网格单元”将会被一一填充，直到没有剩余的项目为止。</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.grid</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span>
+  <span class="token property">grid-template-columns</span><span class="token punctuation">:</span> 100px 100px 100px<span class="token punctuation">;</span>
+  <span class="token property">grid-auto-flow</span><span class="token punctuation">:</span> column<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="函数：repeat"><a href="#函数：repeat" class="headerlink" title="函数：repeat()"></a>函数：repeat()</h5><p>有时候，重复写同样的值非常麻烦，尤其网格很多时。这时，可以使用 repeat()函数，简化重复的值。</p>
+<p>repeat() 函数有助于使 网格轨道 列表变得不是那么多余，并为其添加了语义层。</p>
+<p>repeat()接受两个参数，第一个参数是重复的次数（上例是 3），第二个参数是所要重复的值。</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span>
+  <span class="token property">grid-template-columns</span><span class="token punctuation">:</span> <span class="token function">repeat</span><span class="token punctuation">(</span>3<span class="token punctuation">,</span> 33.33%<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">grid-template-rows</span><span class="token punctuation">:</span> <span class="token function">repeat</span><span class="token punctuation">(</span>3<span class="token punctuation">,</span> 33.33%<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h6 id="巡检项目-当同一form表单中两个下拉菜单请求的数据是一样的会进行拦截返回空数组-解决方法是通过监听请求进行赋值"><a href="#巡检项目-当同一form表单中两个下拉菜单请求的数据是一样的会进行拦截返回空数组-解决方法是通过监听请求进行赋值" class="headerlink" title="(巡检项目)当同一form表单中两个下拉菜单请求的数据是一样的会进行拦截返回空数组,解决方法是通过监听请求进行赋值"></a>(巡检项目)当同一form表单中两个下拉菜单请求的数据是一样的会进行拦截返回空数组,解决方法是通过监听请求进行赋值</h6><h6 id="vue在传递参数的时候为什么有时候加”-”有时候不加"><a href="#vue在传递参数的时候为什么有时候加”-”有时候不加" class="headerlink" title="vue在传递参数的时候为什么有时候加”:”有时候不加?"></a>vue在传递参数的时候为什么有时候加”:”有时候不加?</h6><p>加了冒号表示这个参数是动态的，随着父组件的值改变，子组件的值也相应改变。不加表示传递的都是这个值，是不会变得,是个常量.</p>
+<span class="token selector">.grid</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span>
+  <span class="token property">grid-template-columns</span><span class="token punctuation">:</span> <span class="token function">repeat</span><span class="token punctuation">(</span>
+    3<span class="token punctuation">,</span>
+    1fr 2fr
+  <span class="token punctuation">)</span><span class="token punctuation">;</span> // 重复3次的 1fr 2fr。 <span class="token property">还可以是：grid-template-columns</span><span class="token punctuation">:</span>2fr <span class="token function">repeat</span><span class="token punctuation">(</span>5，1fr<span class="token punctuation">)</span> 4fr<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="auto-fill-关键字"><a href="#auto-fill-关键字" class="headerlink" title="auto-fill 关键字"></a>auto-fill 关键字</h5><p>有时，单元格的大小是固定的，但是容器的大小不确定。如果希望每一行（或每一列）容纳尽可能多的单元格，这时可以使用<code>auto-fill</code>关键字表示自动填充。</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span>
+  <span class="token property">grid-template-columns</span><span class="token punctuation">:</span> <span class="token function">repeat</span><span class="token punctuation">(</span>auto-fill<span class="token punctuation">,</span> 100px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+//上面代码表示每列宽度100px，然后自动填充，直到容器不能放置更多的列。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="minmax"><a href="#minmax" class="headerlink" title="minmax()"></a>minmax()</h5><p>minmax()函数产生一个长度范围，表示长度就在这个范围之中。它接受两个参数，分别为最小值和最大值。</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token property">grid-template-columns</span><span class="token punctuation">:</span> 1fr 1fr <span class="token function">minmax</span><span class="token punctuation">(</span>100px<span class="token punctuation">,</span> 1fr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+//上面代码中，<span class="token function">minmax</span><span class="token punctuation">(</span>100px<span class="token punctuation">,</span> 1fr<span class="token punctuation">)</span>表示列宽不小于100px，不大于1fr。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h5 id="grid-row-gap-属性，grid-column-gap-属性，grid-gap-属性"><a href="#grid-row-gap-属性，grid-column-gap-属性，grid-gap-属性" class="headerlink" title="grid-row-gap 属性，grid-column-gap 属性，grid-gap 属性"></a>grid-row-gap 属性，grid-column-gap 属性，grid-gap 属性</h5><p><code>grid-row-gap</code>属性设置行与行的间隔（行间距），<code>grid-column-gap</code>属性设置列与列的间隔（列间距）。</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">grid-row-gap</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+  <span class="token property">grid-column-gap</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>根据最新标准，上面三个属性名的<code>grid-</code>前缀已经删除，<code>grid-column-gap</code>和<code>grid-row-gap</code>写成<code>column-gap</code>和<code>row-gap</code>，<code>grid-gap</code>写成<code>gap</code>。</p>
+<h5 id="grid-template-areas-属性"><a href="#grid-template-areas-属性" class="headerlink" title="grid-template-areas 属性"></a>grid-template-areas 属性</h5><p>网格布局允许指定”区域”（area），一个区域由单个或多个单元格组成。<code>grid-template-areas</code>属性用于定义区域。</p>
+<h5 id="grid-auto-flow-属性"><a href="#grid-auto-flow-属性" class="headerlink" title="grid-auto-flow 属性"></a>grid-auto-flow 属性</h5><p>划分网格以后，容器的子元素会按照顺序，自动放置在每一个网格。默认的放置顺序是”先行后列”，即先填满第一行，再开始放入第二行，即下图数字的顺序。</p>
+<p>这个顺序由<code>grid-auto-flow</code>属性决定，默认值是<code>row</code>，即”先行后列”。也可以将它设成<code>column</code>，变成”先列后行”。</p>
+<h5 id="place-items-属性"><a href="#place-items-属性" class="headerlink" title="place-items 属性"></a>place-items 属性</h5><p><code>place-items</code>属性是<code>align-items</code>属性和<code>justify-items</code>属性的合并简写形式。</p>
+<h5 id="grid-column-start-属性，grid-column-end-属性，grid-row-start-属性，grid-row-end-属性"><a href="#grid-column-start-属性，grid-column-end-属性，grid-row-start-属性，grid-row-end-属性" class="headerlink" title="grid-column-start 属性，grid-column-end 属性，grid-row-start 属性，grid-row-end 属性"></a>grid-column-start 属性，grid-column-end 属性，grid-row-start 属性，grid-row-end 属性</h5><ul>
+<li>grid-column-start 属性：左边框所在的垂直网格线</li>
+<li>grid-column-end 属性：右边框所在的垂直网格线</li>
+<li>grid-row-start 属性：上边框所在的水平网格线</li>
+<li>grid-row-end 属性：下边框所在的水平网格线<br>简写</li>
+</ul>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.item</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">grid-column</span><span class="token punctuation">:</span> &lt;start-line> / &lt;end-line><span class="token punctuation">;</span>
+  <span class="token property">grid-row</span><span class="token punctuation">:</span> &lt;start-line> / &lt;end-line><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.item-1</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">grid-column</span><span class="token punctuation">:</span> 1 / 3<span class="token punctuation">;</span>
+  <span class="token property">grid-row</span><span class="token punctuation">:</span> 1 / 2<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">/* 等同于 */</span>
+<span class="token selector">.item-1</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">grid-column-start</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span>
+  <span class="token property">grid-column-end</span><span class="token punctuation">:</span> 3<span class="token punctuation">;</span>
+  <span class="token property">grid-row-start</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span>
+  <span class="token property">grid-row-end</span><span class="token punctuation">:</span> 2<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.item-1</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">grid-column-start</span><span class="token punctuation">:</span> 2<span class="token punctuation">;</span>
+  <span class="token property">grid-column-end</span><span class="token punctuation">:</span> 4<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.item-1</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">grid-column-end</span><span class="token punctuation">:</span> span 2<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+//这四个属性的值还可以使用span关键字，表示<span class="token string">"跨越"</span>，即左右边框（上下边框）之间跨越多少个网格。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>关于 Grid(网格) 布局,就看大神阮一峰的<a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html">Grid 网格布局教程</a></p>
 
       </section>
 
@@ -172,32 +248,16 @@ for &#x2F;f &quot;delims&#x3D;&quot; %%a in (&#39;dir &#x2F;a-d &#x2F;s &#x2F;b&
       
         <nav class="article-nav">
           
-            <div class="article-nav-item layout-padding">
-  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
-    
-      <div class="card-cover" background-image-lazy data-img="https://w.wallhaven.cc/full/0q/wallhaven-0q2mq0.jpg"></div>
-    
-    <div class="card-text">
-      
-        <a href="/2022/09/01/configs/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">_config.yml配置</h2>
-        </a>
-      
-      <div class="card-text--row">Newer</div>
-    </div>
-  </article>
-</div>
-          
           
             <div class="article-nav-item layout-padding">
   <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
     
-      <div class="card-cover" background-image-lazy data-img="https://w.wallhaven.cc/full/49/wallhaven-49m6kn.png"></div>
+      <div class="card-cover" background-image-lazy data-img="https://w.wallhaven.cc/full/qz/wallhaven-qzd9dl.png"></div>
     
     <div class="card-text">
       
-        <a href="/2022/08/31/hello/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">Hello hexo</h2>
+        <a href="/2022/10/12/compare/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">webpack vite 对比</h2>
         </a>
       
       <div class="card-text--row">Older</div>
