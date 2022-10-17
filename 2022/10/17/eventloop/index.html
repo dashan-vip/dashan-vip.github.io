@@ -24,7 +24,7 @@
 
   
 
-  <title>Hello hexo | BLOG</title>
+  <title>eventloop(事件循环) | BLOG</title>
 
   
 
@@ -46,7 +46,7 @@
 <!-- header container -->
 <header class="header-container post">
   
-    <div class="post-image" style="background-image: url(https://w.wallhaven.cc/full/49/wallhaven-49m6kn.png)"></div>
+    <div class="post-image" style="background-image: url(https://w.wallhaven.cc/full/6d/wallhaven-6dqd17.png)"></div>
   
 
   <!-- navbar -->
@@ -97,20 +97,18 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">Hello hexo</h1>
+          <h1 class="title-wrap">eventloop(事件循环)</h1>
           <h2 class="title-sub-wrap">
             <strong>张志岳</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2022-08-31T07:32:04.000Z" itemprop="datePublished">2022-08-31</time>
+            <time  class="article-date" datetime="2022-10-17T05:55:07.000Z" itemprop="datePublished">2022-10-17</time>
           </h2>
           <ul class="wrap-list dark">
-  
-    <li><a href="/categories/config/">📒 config</a></li>
   
 </ul>
           <ul class="wrap-list dark">
   
-    <li><a href="/tags/%E9%85%8D%E7%BD%AE/">🏷️ 配置</a></li>
+    <li><a href="/tags/js-%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/">🏷️ js 事件循环</a></li>
   
 </ul>
         </div>
@@ -134,20 +132,38 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">hexo <span class="token keyword">new</span> <span class="token string">"My New Post"</span>
-<span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token number">10</span>   <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+        <h5 id="事件循环机制"><a href="#事件循环机制" class="headerlink" title="事件循环机制"></a>事件循环机制</h5><p><code>JavaScript</code> 是单线程的。所谓单线程意味着一次只能运行一个任务。</p>
+<p>浏览器的事件循环分为<strong>同步任务</strong>和<strong>异步任务</strong>；所有同步任务都在主线程上执行，形成一个函数调用栈（执行栈），而异步则先放到<strong>任务队列</strong>（<strong>task queue</strong>）里，任务队列又分为<strong>宏任务</strong>（macro-task）与<strong>微任务</strong>（micro-task）。</p>
+<p>执行顺序:<strong>同步任务</strong>-&gt;<strong>微任务</strong>-&gt;<strong>宏任务</strong></p>
+<h5 id="常见的微任务和宏任务"><a href="#常见的微任务和宏任务" class="headerlink" title="常见的微任务和宏任务"></a>常见的微任务和宏任务</h5><p><strong>宏任务</strong>:<br><code>setInterval()</code> <code>setTimeout()</code> <code>setImmediate(Node独有)</code> <code>requestAnimationFrame(浏览器独有)</code> <code>I/O UI rendering(浏览器独有)</code></p>
+<p><strong>微任务</strong>:<br><code>new Promise()</code> <code>new MutaionObserver()</code> <code>process.nextTick(Node独有)</code> <code>Object.observe</code></p>
+<h5 id="示例一"><a href="#示例一" class="headerlink" title="示例一"></a>示例一</h5><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">async1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> res <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">async2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"b"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">async2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"c"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"d"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"e"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">async1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"f"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"g"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"h"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"i"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/63bb4925a49b481987dbe8804ac2bfc8~tplv-k3u1fbpfcp-watermark.image" alt="image.png"></p>
+<p><a href="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/63bb4925a49b481987dbe8804ac2bfc8~tplv-k3u1fbpfcp-watermark.image?" target="back"><code>图片详情</code></a></p>
+<p>执行顺序如上图所示。最终得到的结果是 d、a、c、g、i、b、h、f、e。</p>
 
       </section>
 
@@ -155,22 +171,22 @@
       
         <nav class="article-nav">
           
+          
             <div class="article-nav-item layout-padding">
   <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
     
-      <div class="card-cover" background-image-lazy data-img="https://w.wallhaven.cc/full/ne/wallhaven-ne78w4.jpg"></div>
+      <div class="card-cover" background-image-lazy data-img="https://w.wallhaven.cc/full/l8/wallhaven-l8q9pr.jpg"></div>
     
     <div class="card-text">
       
-        <a href="/2022/08/31/question/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">问题总结</h2>
+        <a href="/2022/10/13/grid/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">display grid 属性</h2>
         </a>
       
-      <div class="card-text--row">Newer</div>
+      <div class="card-text--row">Older</div>
     </div>
   </article>
 </div>
-          
           
         </nav>
       
