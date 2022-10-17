@@ -1,5 +1,5 @@
 ---
-title: 访问不了的问题
+title: GitHub访问不了的问题
 date: 2022-10-17 15:00:59
 tags: GitHub 方法
 cover: https://w.wallhaven.cc/full/d6/wallhaven-d656vl.jpg
